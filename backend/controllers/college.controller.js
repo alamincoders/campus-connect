@@ -11,4 +11,37 @@ exports.getCollegeDetails = async (req, res) => {
   res.json(college);
 };
 
-// Add other CRUD methods as required
+// Create a new college
+exports.createCollege = async (req, res) => {
+  const newCollege = new College(req.body);
+  try {
+    const savedCollege = await newCollege.save();
+    res.status(201).json(savedCollege);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating college", error });
+  }
+};
+
+// Update a college
+exports.updateCollege = async (req, res) => {
+  try {
+    const updatedCollege = await College.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.status(200).json(updatedCollege);
+  } catch (error) {
+    res.status(500).json({ message: "Error updating college", error });
+  }
+};
+
+// Delete a college
+exports.deleteCollege = async (req, res) => {
+  try {
+    await College.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "College deleted" });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting college", error });
+  }
+};
