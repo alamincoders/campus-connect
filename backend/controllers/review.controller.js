@@ -12,7 +12,10 @@ exports.getReviews = async (req, res) => {
 
   try {
     const reviews = await Review.find({ collegeId }).populate("userId", "name");
-    res.status(200).json(reviews);
+    res.status(200).json({
+      message: "Reviews fetched",
+      data: reviews,
+    });
   } catch (error) {
     res.status(500).json({ message: "Error fetching reviews", error });
   }
@@ -23,7 +26,7 @@ exports.createReview = async (req, res) => {
   const newReview = new Review(req.body);
   try {
     const savedReview = await newReview.save();
-    res.status(201).json(savedReview);
+    res.status(201).json({ message: "Review created", data: savedReview });
   } catch (error) {
     res.status(500).json({ message: "Error creating review", error });
   }
@@ -37,7 +40,7 @@ exports.updateReview = async (req, res) => {
       req.body,
       { new: true }
     );
-    res.status(200).json(updatedReview);
+    res.status(200).json({ message: "Review updated", data: updatedReview });
   } catch (error) {
     res.status(500).json({ message: "Error updating review", error });
   }

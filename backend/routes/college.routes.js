@@ -10,7 +10,7 @@ const router = express.Router();
 
 // College routes
 router.get("/", getColleges);
-router.post("/", protect, createCollege);
+router.post("/", createCollege);
 router.put("/:id", protect, updateCollege);
 router.delete("/:id", protect, deleteCollege);
 

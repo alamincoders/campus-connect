@@ -8,7 +8,10 @@ exports.registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = new User({ ...req.body, password: hashedPassword });
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({
+      message: "User registered successfully",
+      user: savedUser,
+    });
   } catch (error) {
     res.status(500).json({ message: "Error registering user", error });
   }
@@ -36,7 +39,7 @@ exports.loginUser = async (req, res) => {
 exports.getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    res.status(200).json(user);
+    res.status(200).json({ message: "User profile fetched", user });
   } catch (error) {
     res.status(500).json({ message: "Error fetching user profile", error });
   }
@@ -48,7 +51,10 @@ exports.updateUserProfile = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
       new: true,
     });
-    res.status(200).json(updatedUser);
+    res.status(200).json({
+      message: "User profile updated successfully",
+      user: updatedUser,
+    });
   } catch (error) {
     res.status(500).json({ message: "Error updating user profile", error });
   }
