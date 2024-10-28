@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
 
 const NavbarSection = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -18,9 +19,23 @@ const NavbarSection = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsFixed(window.scrollY > 140);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="relative bg-white py-5 lg:py-0">
-      <div className="flex items-center justify-between container_fluid ">
+    <nav
+      className={`z-[99999] bg-white py-5 lg:py-0 transition-all duration-300 ${
+        isFixed
+          ? "fixed top-0 left-0 w-full shadow-lg animate-fadeDown backdrop:blur"
+          : ""
+      }`}
+    >
+      <div className="flex items-center justify-between container_fluid">
         <Link to="/">
           <img
             src="/logo.png"
@@ -28,8 +43,8 @@ const NavbarSection = () => {
             className="max-w-60 w-full px-3"
           />
         </Link>
-        <div className="items-center gap-x-8 flex ">
-          <ul className="items-center lg:gap-6 xl:gap-12 text-base lg:flex hidden ">
+        <div className="items-center gap-x-8 flex">
+          <ul className="items-center lg:gap-6 xl:gap-12 text-base lg:flex hidden">
             {navItems.map((item) => (
               <li
                 key={item.name}

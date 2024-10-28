@@ -81,6 +81,9 @@ export default {
           5: "hsl(var(--chart-5))",
         },
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
