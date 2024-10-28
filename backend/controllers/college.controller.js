@@ -1,4 +1,4 @@
-const College = require("../models/college");
+const College = require("../models/Colleges");
 
 exports.getColleges = async (req, res) => {
   const colleges = await College.find();
