@@ -66,7 +66,7 @@ const NavbarSection = () => {
               to="/login"
               className="py-5 lg:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 lg:flex hidden font-medium uppercase"
             >
-              Free Admission
+              Admission Open
             </Link>
 
             <CiMenuFries
