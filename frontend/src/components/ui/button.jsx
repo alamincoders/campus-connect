@@ -6,11 +6,11 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full hover:text-white before:-right-full before:hover:right-0 before:rounded-full before:bg-secondary_main before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center px-4 py-3 gap-x-2 disabled:opacity-50 disabled:pointer-events-none rounded-[2px]",
+  "relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-500 before:hover:w-full hover:text-white before:-right-full before:hover:right-0 before:rounded-full before:bg-secondary_main before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-500 inline-flex items-center justify-center px-4 py-3 gap-x-2 disabled:opacity-50 disabled:pointer-events-none rounded-[2px]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary_main text-primary-foreground hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:

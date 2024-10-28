@@ -1,5 +1,14 @@
+import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
+
 const Admission = () => {
-  return <div>Admission</div>;
+  return (
+    <>
+      <BreadcrumbSection
+        page_name="Admission"
+        items={[{ label: "Home", path: "/" }, { label: "Admission" }]}
+      />
+    </>
+  );
 };
 
 export default Admission;

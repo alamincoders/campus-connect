@@ -1,5 +1,14 @@
+import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
+
 const AboutPage = () => {
-  return <div>AboutPage</div>;
+  return (
+    <>
+      <BreadcrumbSection
+        page_name="About Us"
+        items={[{ label: "Home", path: "/" }, { label: "About" }]}
+      />
+    </>
+  );
 };
 
 export default AboutPage;
