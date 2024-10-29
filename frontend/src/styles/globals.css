@@ -124,13 +124,13 @@
 @keyframes scaleBounce {
   0%,
   100% {
-    transform: scale(1);
+    transform: translateY(0px);
   }
   50% {
-    transform: scale(1.2); /* Adjust the scale factor as needed */
+    transform: translateY(-10px); /* Adjust the scale factor as needed */
   }
 }
 
 .scale-bounce {
-  animation: scaleBounce 5s infinite; /* Adjust duration and iteration as needed */
+  animation: scaleBounce 3s infinite; /* Adjust duration and iteration as needed */
 }
