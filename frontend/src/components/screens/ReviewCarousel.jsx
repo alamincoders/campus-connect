@@ -52,8 +52,6 @@ export const Carousel = ({ reviews, initialScroll = 0 }) => {
               />
             ))}
           </div>
-          <div className="w-20 h-[217px]  bg-gradient-to-r from-[#EFF7FF] to-transparent blur absolute bottom-0 left-0" />
-          <div className="w-20 h-[217px] bg-gradient-to-l from-[#EFF7FF]  to-transparent blur absolute bottom-0 -right-2" />
         </div>
         <div className="flex justify-center gap-2 2xl:absolute top-[100px] right-0 mt-8 2xl:mt-0">
           <Button

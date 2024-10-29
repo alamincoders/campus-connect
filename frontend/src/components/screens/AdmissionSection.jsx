@@ -13,7 +13,7 @@ const AdmissionSection = () => {
               alt="about"
             />
           </div>
-          <div className="space-y-8">
+          <div className=" space-y-4 lg:space-y-8">
             <h2 className="text-3xl lg:text-5xl font-bold text-secondary_main-950 ">
               Admission & Aid
             </h2>
@@ -24,7 +24,7 @@ const AdmissionSection = () => {
                 with premier colleges, we are making learning more relevant and
                 transformational.
               </p>
-              <p>
+              <p className="hidden lg:block">
                 At Estuidar University, we prepare you to launch your career by
                 pro supportive, creative, and professional environment from
                 which to learn practical skills, build a network of industry
