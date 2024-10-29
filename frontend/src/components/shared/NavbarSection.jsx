@@ -31,7 +31,7 @@ const NavbarSection = () => {
     <nav
       className={`z-[99999] bg-white py-5 lg:py-0 transition-all duration-300 ${
         isFixed
-          ? "fixed top-0 left-0 w-full shadow-lg animate-fadeDown backdrop:blur"
+          ? "fixed top-0 left-0 w-full shadow animate-fadeDown"
           : ""
       }`}
     >
