@@ -30,9 +30,7 @@ const NavbarSection = () => {
   return (
     <nav
       className={`z-[99999] bg-white py-5 lg:py-0 transition-all duration-300 ${
-        isFixed
-          ? "fixed top-0 left-0 w-full shadow animate-fadeDown"
-          : ""
+        isFixed ? "fixed top-0 left-0 w-full shadow animate-fadeDown" : ""
       }`}
     >
       <div className="flex items-center justify-between container_fluid">
