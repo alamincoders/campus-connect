@@ -6,6 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 
 const SearchBar = () => {
   const [inputFocus, setInputFocus] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const ref = useRef(null);
 
   const allPeoples = [
@@ -54,7 +55,7 @@ const SearchBar = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key === "e") {
-        event.preventDefault(); // Prevent browser"s default search bar opening
+        event.preventDefault(); // Prevent browser's default search bar opening
         setInputFocus(true);
       }
     };
@@ -68,12 +69,18 @@ const SearchBar = () => {
 
   useOutsideClick(ref, () => setInputFocus(false));
 
+  const filteredPeoples = allPeoples.filter((people) =>
+    people.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="relative w-full lg:w-[40%] product_search_input">
       <input
         className="px-4 py-2 border border-border rounded-md w-full pl-[40px] outline-none"
         placeholder="Search Your College..."
         onClick={() => setInputFocus(true)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <IoIosSearch className="absolute top-[9px] left-2 text-[1.5rem] text-[#adadad]" />
 
@@ -96,32 +103,38 @@ const SearchBar = () => {
             <div>
               <p className="text-[0.9rem] text-gray-500">
                 Colleges{" "}
-                <span className="text-[0.8rem] text-gray-400">(8)</span>
+                <span className="text-[0.8rem] text-gray-400">
+                  ({filteredPeoples.length})
+                </span>
               </p>
 
               <div className="mt-4 h-[300px] overflow-y-auto">
-                {allPeoples?.map((people, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-wrap gap-[10px] items-center justify-between w-full hover:bg-gray-100 p-[10px] cursor-pointer rounded-md group"
-                  >
-                    <div className="flex items-center gap-[15px]">
-                      <img
-                        src={people.picture}
-                        alt="avatar"
-                        className="w-[50px] h-[50px] rounded-full object-cover"
-                      />
-                      <div>
-                        <h3 className="text-[1.1rem] font-[500] text-gray-800">
-                          {people.name}
-                        </h3>
-                        <p className="text-[0.8rem] break-all text-gray-500">
-                          {people.email}
-                        </p>
+                {filteredPeoples.length > 0 ? (
+                  filteredPeoples.map((people, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-wrap gap-[10px] items-center justify-between w-full hover:bg-gray-100 p-[10px] cursor-pointer rounded-md group"
+                    >
+                      <div className="flex items-center gap-[15px]">
+                        <img
+                          src={people.picture}
+                          alt="avatar"
+                          className="w-[50px] h-[50px] rounded-full object-cover"
+                        />
+                        <div>
+                          <h3 className="text-[1.1rem] font-[500] text-gray-800">
+                            {people.name}
+                          </h3>
+                          <p className="text-[0.8rem] break-all text-gray-500">
+                            {people.email}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <div className="text-rose-400">No result found!</div>
+                )}
               </div>
             </div>
           </div>
