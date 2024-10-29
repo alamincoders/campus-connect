@@ -44,7 +44,7 @@ const NavbarSection = () => {
           />
         </Link>
         <div className="items-center gap-x-8 flex">
-          <ul className="items-center lg:gap-6 xl:gap-12 text-base lg:flex hidden">
+          <ul className="items-center gap-6 xl:gap-12 text-base lg:flex hidden">
             {navItems.map((item) => (
               <li
                 key={item.name}
@@ -64,7 +64,7 @@ const NavbarSection = () => {
           <div className="items-center gap-[10px] flex">
             <Link
               to="/login"
-              className="py-5 lg:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 lg:flex hidden font-medium uppercase"
+              className="py-3.5 2xl:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 lg:flex hidden font-medium uppercase rounded-[2px] 2xl:rounded-none "
             >
               Admission Open
             </Link>
