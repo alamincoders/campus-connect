@@ -13,7 +13,7 @@ const OurColleges = () => {
           />
           <SearchBar />
         </div>
-        <div className="mt-8 lg:mt-12">
+        <div className="mt-8">
           <CollegeLists />
         </div>
       </div>
