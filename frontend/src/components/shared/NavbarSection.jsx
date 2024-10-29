@@ -48,7 +48,7 @@ const NavbarSection = () => {
             {navItems.map((item) => (
               <li
                 key={item.name}
-                className={`before:w-0 hover:before:w-full before:bg-main-400 before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] before:left-0 cursor-pointer capitalize font-medium py-[21.5px] ${
+                className={`before:w-0 hover:before:w-full before:bg-main-400 before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] before:left-0 cursor-pointer capitalize font-medium py-[21.5px] hover:text-primary_main ${
                   isActive(item.path) ? "text-primary_main" : "text-[#162542]"
                 }`}
               >
