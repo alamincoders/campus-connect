@@ -119,7 +119,7 @@ const SearchBar = () => {
                         <img
                           src={people.picture}
                           alt="avatar"
-                          className="w-[50px] h-[50px] rounded-full object-cover"
+                          className="w-[50px] h-[50px] object-cover custom_clip"
                         />
                         <div>
                           <h3 className="text-[1.1rem] font-[500] text-gray-800">

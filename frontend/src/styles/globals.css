@@ -134,3 +134,18 @@
 .scale-bounce {
   animation: scaleBounce 3s infinite; /* Adjust duration and iteration as needed */
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary_main/20 to-secondary_main/20 cursor-pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gradient-to-t from-primary_main to-secondary_main;
+}
