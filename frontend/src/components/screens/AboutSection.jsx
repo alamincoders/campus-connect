@@ -54,8 +54,8 @@ const AboutSection = () => {
             </div>
 
             <div className="hidden xl:grid grid-cols-1  xl:grid-cols-2 gap-4">
-              <div className="flex items-center gap-4">
-                <span className="text-white text-[20px] bg-primary_main font-semibold w-24 h-14 flex items-center justify-center custom_clip">
+              <div className="flex items-center gap-4 group">
+                <span className="text-white text-[20px] bg-primary_main group-hover:bg-secondary_main duration-300 transition-all ease-in-out font-semibold w-24 h-14 flex items-center justify-center custom_clip">
                   01
                 </span>
                 <div className="w-full max-w-[240px] ">
@@ -67,8 +67,8 @@ const AboutSection = () => {
                   </p>
                 </div>
               </div>{" "}
-              <div className="flex items-center gap-4">
-                <span className="text-white text-[20px] bg-primary_main font-semibold w-24 h-14 flex items-center justify-center custom_clip">
+              <div className="flex items-center gap-4 group">
+                <span className="text-white text-[20px] bg-primary_main group-hover:bg-secondary_main duration-300 transition-all ease-in-out font-semibold w-24 h-14 flex items-center justify-center custom_clip">
                   02
                 </span>
                 <div className="w-full max-w-[240px] ">
