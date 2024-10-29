@@ -11,13 +11,13 @@ const GalleryTabs = () => {
     {
       id: 5,
       label: "Business",
-      translateX: "translate-x-[447px]",
+      translateX: "translate-x-[442px]",
       width: "!w-[100px]",
     },
   ];
 
   return (
-    <ul className="hidden 2xl:flex items-center border rounded-full p-1 pl-0 relative z-0">
+    <ul className="hidden 2xl:flex items-center border rounded-full py-1 relative z-0">
       <div
         className={`${tabs.find((tab) => tab.id === activeTab).translateX} ${
           tabs.find((tab) => tab.id === activeTab).width || "w-[95px]"
