@@ -67,7 +67,8 @@
     margin: 0 auto;
     font-family: "Jost", sans-serif;
   }
-  p, button {
+  p,
+  button {
     @apply font-roboto;
   }
 }
@@ -102,4 +103,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.about-text-img {
+  background: #125875;
+  bottom: 0;
+  content: "";
+  display: inline-block;
+  height: 6px;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }

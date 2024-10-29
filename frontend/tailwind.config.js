@@ -84,6 +84,12 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },
+      padding: {
+        30: "120px",
+      },
+      margin: {
+        30: "120px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
