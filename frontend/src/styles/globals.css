@@ -119,3 +119,18 @@
 .custom_clip {
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 }
+
+/* custom.css */
+@keyframes scaleBounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Adjust the scale factor as needed */
+  }
+}
+
+.scale-bounce {
+  animation: scaleBounce 5s infinite; /* Adjust duration and iteration as needed */
+}

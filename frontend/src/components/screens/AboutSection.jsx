@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { FaArrowRightLong } from "react-icons/fa6";
 const AboutSection = () => {
   return (
-    <section className="py-16 lg:py-30 bg-[#EFF7FF]">
+    <section className="py-16 lg:py-30 bg-[#EFF7FF] relative overflow-hidden">
       <div className="container_fluid">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
@@ -89,6 +89,13 @@ const AboutSection = () => {
             </Link>
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-0 right-0 scale-bounce">
+        <img
+          src="/bg-animate.png"
+          alt="bg-animate"
+        />
       </div>
     </section>
   );
