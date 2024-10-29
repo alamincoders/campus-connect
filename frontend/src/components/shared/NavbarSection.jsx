@@ -79,7 +79,7 @@ const NavbarSection = () => {
         <aside
           className={`${
             mobileSidebarOpen
-              ? "translate-x-0 opacity-100 z-20"
+              ? "translate-x-0 opacity-100 z-[200]"
               : "translate-x-[200px] opacity-0 z-[-1]"
           } lg:hidden bg-white boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-300`}
         >
@@ -96,12 +96,18 @@ const NavbarSection = () => {
               <li
                 key={item.name}
                 className={`hover:border-b-main-400 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer capitalize ${
-                  isActive(item.path) ? "text-main-400" : ""
+                  isActive(item.path) ? "text-primary_main" : ""
                 }`}
               >
                 <Link to={item.path}>{item.name}</Link>
               </li>
             ))}
+            <Link
+              to="/login"
+              className="py-3 lg:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 inline-flex lg:hidden font-medium uppercase"
+            >
+              Admission Open
+            </Link>
           </ul>
         </aside>
       </div>

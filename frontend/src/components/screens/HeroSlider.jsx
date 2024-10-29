@@ -49,7 +49,7 @@ const HeroSlider = () => {
       />
       <div
         ref={containerRef}
-        className="w-full h-[856px] overflow-hidden relative "
+        className="w-full h-[480px] lg:h-[856px] overflow-hidden relative "
       >
         <AnimatePresence
           initial={false}
@@ -104,12 +104,12 @@ const HeroSlider = () => {
               </div>
               <div className="flex gap-4 mt-8">
                 <Link to="/about-us">
-                  <Button className="bg-primary_main-500 py-5 px-[30px]">
+                  <Button className="bg-primary_main-500 py-5 px-6 lg:px-[30px]">
                     Discover More <FaArrowRightLong />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button className="py-5 px-[30px] bg-transparent border border-white hover:border-secondary_main">
+                  <Button className="py-5 px-6 lg:px-[30px] bg-transparent border border-white hover:border-secondary_main">
                     Contact Us <FaArrowRightLong />
                   </Button>
                 </Link>
