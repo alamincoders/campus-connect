@@ -56,7 +56,7 @@ const GalleryLists = () => {
         <img
           src="/slider2.webp"
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-right"
         />{" "}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Link
