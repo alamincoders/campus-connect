@@ -9,7 +9,7 @@ const AboutSection = () => {
       <div className="container_fluid">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <div className="relative">
+            <div className="relative hidden 2xl:block">
               <div className="w-[292px] absolute top-0 right-4 text-center bg-primary_main rounded-[10px] shadow-md overflow-hidden p-[21.5px] ">
                 <div className="about-text-img" />
                 <div>
