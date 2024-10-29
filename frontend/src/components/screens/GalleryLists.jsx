@@ -10,7 +10,7 @@ const GalleryLists = () => {
           alt=""
           className="w-full h-full object-cover"
         />{" "}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main hover:bg-primary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <Link
             to="/"
             className="text-white"
@@ -26,7 +26,7 @@ const GalleryLists = () => {
           alt=""
           className="w-full h-full object-cover"
         />{" "}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main hover:bg-primary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <Link
             to="/"
             className="text-white"
@@ -42,7 +42,7 @@ const GalleryLists = () => {
           alt=""
           className="w-full h-full object-cover"
         />{" "}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main hover:bg-primary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <Link
             to="/"
             className="text-white"
@@ -58,7 +58,7 @@ const GalleryLists = () => {
           alt=""
           className="w-full h-full object-cover object-right"
         />{" "}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main hover:bg-primary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <Link
             to="/"
             className="text-white"
@@ -74,7 +74,7 @@ const GalleryLists = () => {
           alt=""
           className="w-full h-full object-cover"
         />{" "}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-secondary_main hover:bg-primary_main p-1 rounded z-10 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <Link
             to="/"
             className="text-white"
