@@ -6,7 +6,7 @@ const OurColleges = () => {
   return (
     <div className="py-16 lg:py-30 relative">
       <div className="container_fluid">
-        <div className=" space-y-8 lg:space-y-0 lg:flex items-center justify-between gap-8">
+        <div className=" space-y-8 lg:space-y-0 lg:flex items-end justify-between gap-8">
           <SubHeading
             heading="Our College Lists"
             sub_heading="Our Colleges"
