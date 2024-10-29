@@ -4,10 +4,12 @@ import Admission from "@/pages/Admission";
 import Colleges from "@/pages/Colleges";
 import ContactPage from "@/pages/ContactPage";
 import ErrorPage from "@/pages/ErrorPage";
+import ForgotPassword from "@/pages/ForgotPassword";
 import HomePage from "@/pages/HomePage";
 import LoginPage from "@/pages/LoginPage";
 import MyCollege from "@/pages/MyCollege";
 import RegisterPage from "@/pages/RegisterPage";
+import ResetPassword from "@/pages/ResetPassword";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -53,5 +55,13 @@ export const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
   },
 ]);
