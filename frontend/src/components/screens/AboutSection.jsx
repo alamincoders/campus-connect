@@ -1,8 +1,8 @@
-import { GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 
 import { FaArrowRightLong } from "react-icons/fa6";
+import SubHeading from "../shared/SubHeading";
 const AboutSection = () => {
   return (
     <section className="py-16 lg:py-30 bg-[#EFF7FF] relative overflow-hidden">
@@ -31,12 +31,10 @@ const AboutSection = () => {
           </div>
           <div>
             <div className="pb-6">
-              <h5 className="inline-flex items-center gap-2 text-primary_main text-lg mb-2.5 break-words font-semibold">
-                <GraduationCap /> About Our System
-              </h5>
-              <h2 className="text-3xl lg:text-[50px] leading-none font-semibold text-[#141b22]">
-                A Few Words About our System
-              </h2>
+              <SubHeading
+                heading=" A Few Words About our System"
+                sub_heading="About Our System"
+              />
             </div>
             <div>
               <p className="text-lg leading-[28px] text-secondary_main mb-4">
