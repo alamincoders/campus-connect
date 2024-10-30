@@ -1,7 +1,5 @@
-import { FaArrowRightLong } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import SubHeading from "../shared/SubHeading";
-import { Button } from "../ui/button";
+import GalleryTabs from "./GalleryTabs";
 import ResearchPaper from "./ResearchPaper";
 
 const researchPapers = [
@@ -38,19 +36,13 @@ const ResearchPapersSection = () => {
     <section className="py-16 lg:py-30 relative overflow-hidden">
       {/* Paper List */}
       <div className="container_fluid">
-        <div className="space-y-8 lg:space-y-0 lg:flex items-center justify-between gap-8">
+        <div className="space-y-8 lg:space-y-0 lg:flex items-end justify-between gap-8">
           <SubHeading
             className="max-w-[686px] w-full"
             heading="We Recommend Our Latest Research Papers"
             sub_heading="Our Research Papers"
           />
-          <div className="mt-8 text-center">
-            <Link to="/about-us">
-              <Button className="bg-secondary_main before:bg-primary_main py-5 px-6 lg:px-[30px]">
-                View All Papers <FaArrowRightLong />
-              </Button>
-            </Link>
-          </div>
+          <GalleryTabs />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {researchPapers.map((paper, index) => (

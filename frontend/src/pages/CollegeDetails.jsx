@@ -24,6 +24,8 @@ const CollegeDetails = () => {
 
   const { name, admissionDate } = college.data;
 
+  console.log(college.data);
+
   return (
     <div>
       CollegeDetails {name} {admissionDate}

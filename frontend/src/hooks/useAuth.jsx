@@ -28,8 +28,6 @@ export function useAuth() {
     formState: { errors },
   } = useForm();
 
-  console.log(from);
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
