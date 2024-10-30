@@ -14,7 +14,7 @@ const OurColleges = () => {
           <SearchBar />
         </div>
         <div className="mt-8">
-          <CollegeLists />
+          <CollegeLists size={3} />
         </div>
       </div>
 
