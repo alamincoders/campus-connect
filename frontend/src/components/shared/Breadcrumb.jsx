@@ -11,11 +11,11 @@ import { Link } from "react-router-dom";
 export function BreadcrumbSection({ items, page_name }) {
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center min-h-96 lg:min-h-[450px] relative mb-[26px]"
+      className="bg-cover bg-no-repeat bg-center min-h-40 lg:min-h-96 2xl:min-h-[450px] relative mb-[26px]"
       style={{ backgroundImage: `url("/bdrc-bg.png")` }}
     >
       <div className="container_fluid">
-        <div className="text-white flex items-center justify-center min-h-96 lg:min-h-[450px]">
+        <div className="text-white flex items-center justify-center min-h-40 lg:min-h-96 2xl:min-h-[450px]">
           <h2 className="text-3xl lg:text-5xl xl:text-7xl font-bold mb-6 capitalize">
             {page_name}
           </h2>
