@@ -1,13 +1,12 @@
 import MainLayout from "@/layouts/MainLayout";
-import AboutPage from "@/pages/AboutPage";
 import Admission from "@/pages/Admission";
 import Colleges from "@/pages/Colleges";
-import ContactPage from "@/pages/ContactPage";
 import ErrorPage from "@/pages/ErrorPage";
 import ForgotPassword from "@/pages/ForgotPassword";
 import HomePage from "@/pages/HomePage";
 import LoginPage from "@/pages/LoginPage";
 import MyCollege from "@/pages/MyCollege";
+import ProfilePage from "@/pages/ProfilePage";
 import RegisterPage from "@/pages/RegisterPage";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -25,10 +24,7 @@ export const router = createBrowserRouter([
         path: "/home",
         element: <HomePage />,
       },
-      {
-        path: "/about-us",
-        element: <AboutPage />,
-      },
+
       {
         path: "/colleges",
         element: <Colleges />,
@@ -41,9 +37,10 @@ export const router = createBrowserRouter([
         path: "/my-college",
         element: <MyCollege />,
       },
+
       {
-        path: "/contact",
-        element: <ContactPage />,
+        path: "/profile",
+        element: <ProfilePage />,
       },
     ],
   },

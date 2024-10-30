@@ -1,9 +1,12 @@
 import { useAuth } from "@/hooks/useAuth";
+import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
+import { Modal, ModalBody, ModalContent, ModalTrigger } from "../ui/modal";
 import LoginUserDropdown from "./LoginUserDropdown";
+import SearchBar from "./SearchBar";
 
 const NavbarSection = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -13,11 +16,9 @@ const NavbarSection = () => {
 
   const navItems = [
     { name: "home", path: "/" },
-    { name: "about us", path: "/about-us" },
     { name: "colleges", path: "/colleges" },
     { name: "admission", path: "/admission" },
     { name: "my college", path: "/my-college" },
-    { name: "contact", path: "/contact" },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -61,7 +62,23 @@ const NavbarSection = () => {
                 </Link>
               </li>
             ))}
+            <Modal>
+              <ModalTrigger>
+                <button className="inline-flex">
+                  <Search className="mt-2" />
+                </button>
+              </ModalTrigger>
+              <ModalBody>
+                <ModalContent>
+                  <SearchBar
+                    className="!w-full"
+                    shortcut={false}
+                  />
+                </ModalContent>
+              </ModalBody>
+            </Modal>
           </ul>
+
           <div className="items-center gap-[10px] flex">
             {!user && (
               <Link

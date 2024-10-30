@@ -1,10 +1,11 @@
 import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 // react icons
 import { IoIosSearch } from "react-icons/io";
 
-const SearchBar = () => {
+const SearchBar = ({ className, shortcut = true }) => {
   const [inputFocus, setInputFocus] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const ref = useRef(null);
@@ -74,7 +75,12 @@ const SearchBar = () => {
   );
 
   return (
-    <div className="relative w-full lg:w-[40%] product_search_input">
+    <div
+      className={cn(
+        "relative w-full lg:w-[40%]  product_search_input",
+        className
+      )}
+    >
       <input
         className="px-4 py-2 border border-border rounded-md w-full pl-[40px] outline-none"
         placeholder="Search Your College..."
@@ -85,9 +91,11 @@ const SearchBar = () => {
       <IoIosSearch className="absolute top-[9px] left-2 text-[1.5rem] text-[#adadad]" />
 
       {/* shortcut hint */}
-      <div className="absolute top-[5px] right-1.5 text-[0.6rem] font-bold border border-gray-100 p-[8px] rounded-md text-gray-500">
-        Ctrl + E
-      </div>
+      {shortcut && (
+        <div className="absolute top-[5px] right-1.5 text-[0.6rem] font-bold border border-gray-100 p-[8px] rounded-md text-gray-500">
+          Ctrl + E
+        </div>
+      )}
 
       <div
         ref={ref}
