@@ -1,12 +1,16 @@
+import { useAuth } from "@/hooks/useAuth";
 import { useEffect, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
+import { Avatar } from "../ui/avatar";
+import LoginUserDropdown from "./LoginUserDropdown";
 
 const NavbarSection = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const navItems = [
     { name: "home", path: "/" },
@@ -26,6 +30,8 @@ const NavbarSection = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  console.log(user);
 
   return (
     <nav
@@ -60,12 +66,17 @@ const NavbarSection = () => {
             ))}
           </ul>
           <div className="items-center gap-[10px] flex">
-            <Link
-              to="/login"
-              className="py-3.5 2xl:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 lg:flex hidden font-medium uppercase rounded-[2px] 2xl:rounded-none "
-            >
-              Admission Open
-            </Link>
+            {!user && (
+              <Link
+                to="/login"
+                className="py-3.5 2xl:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 lg:flex hidden font-medium uppercase rounded-[2px] 2xl:rounded-none "
+              >
+                Admission Open
+              </Link>
+            )}
+            {user && !user?.avatar && <LoginUserDropdown />}
+
+            {user && user?.avatar && <Avatar src={user?.avatar} />}
 
             <CiMenuFries
               className="text-[1.8rem] mr-1 text-mine-shaft cursor-pointer lg:hidden flex"

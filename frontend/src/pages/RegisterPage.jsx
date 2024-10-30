@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/hooks/useAuth";
 import { ArrowLeft } from "lucide-react";
+import { FaTruckLoading } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const { register, errors, signUp, loading } = useAuth();
 
   return (
     <div className="flex font-poppins items-center justify-center min-w-screen min-h-screen relative">
@@ -23,7 +26,7 @@ const RegisterPage = () => {
             </h1>
             <form
               action="#"
-              method="post"
+              onSubmit={signUp}
               className="space-y-4"
             >
               <div>
@@ -38,8 +41,9 @@ const RegisterPage = () => {
                   className="focus:scale-105 duration-300 ease-in-out transition-transform"
                   type="text"
                   placeholder="Full Name"
-                  required
+                  {...register("name", { required: "Name is required" })}
                 />
+                {errors.name && <p>{errors.name.message}</p>}
               </div>
               <div>
                 <label
@@ -53,8 +57,9 @@ const RegisterPage = () => {
                   className="focus:scale-105 duration-300 ease-in-out transition-transform"
                   type="email"
                   placeholder="Email"
-                  required
+                  {...register("email", { required: "Email is required" })}
                 />
+                {errors.email && <p>{errors.email.message}</p>}
               </div>
               <div>
                 <label
@@ -68,14 +73,24 @@ const RegisterPage = () => {
                   className="focus:scale-105 duration-300 ease-in-out transition-transform"
                   type="password"
                   placeholder="Password"
-                  required
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
                 />
+                {errors.password && <p>{errors.password.message}</p>}
               </div>
               <button
                 className="bg-primary_main hover:bg-secondary_main shadow-lg mt-6 p-2 text-white rounded w-full transform hover:scale-105 hover:from-secondary_main hover:to-primary_main transition duration-300 ease-in-out"
                 type="submit"
+                disabled={loading}
               >
-                SIGN UP
+                {loading ? (
+                  <>
+                    <FaTruckLoading /> Loading...
+                  </>
+                ) : (
+                  "Sign Up"
+                )}
               </button>
             </form>
 
