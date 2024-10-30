@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 // Reusable Footer Column Component
 const FooterColumn = ({ title, children }) => (
-  <div>
+  <div className="mt-5 sm:mt-0">
     <h3 className="footer-heading">{title}</h3>
     <div>{children}</div>
   </div>
@@ -57,7 +57,7 @@ const FooterContact = ({ contacts }) => (
         <div className="footer_social_icon_contact">
           <contact.icon />
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col text-[15px] text-[#b2c0d8]">
           {contact.type === "link" ? (
             contact.values.map((value, i) => (
               <Link
@@ -119,7 +119,7 @@ const FooterSection = () => {
   return (
     <footer className="bg-secondary_main-950 text-white py-16 lg:py-[90px] relative">
       <div className="container_fluid">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
           {/* About Us Section */}
           <FooterColumn title="About Us">
             <p className="mb-4 text-[#b2c0d8] text-[15px] font-roboto">
@@ -143,9 +143,9 @@ const FooterSection = () => {
                   alt="event"
                   className="w-20 h-20 object-cover rounded-md"
                 />
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 overflow-hidden">
                   <Link
-                    className="text-[#b2c0d8] text-[15px] font-roboto"
+                    className="text-[#b2c0d8] text-[15px] font-roboto truncate lg:whitespace-nowrap xl:whitespace-normal"
                     to="/"
                   >
                     Nothing impossible, requires hard work
@@ -161,9 +161,9 @@ const FooterSection = () => {
                   alt="event"
                   className="w-20 h-20 object-cover rounded-md"
                 />
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 overflow-hidden">
                   <Link
-                    className="text-[#b2c0d8] text-[15px] font-roboto"
+                    className="text-[#b2c0d8] text-[15px] font-roboto  truncate lg:whitespace-nowrap xl:whitespace-normal"
                     to="/"
                   >
                     Nothing impossible, requires hard work

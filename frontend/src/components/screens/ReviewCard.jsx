@@ -37,11 +37,11 @@ const ReviewCard = ({ review }) => {
             {review.message.length > 100 ? "..." : ""}{" "}
           </q>
         </blockquote>
-        <div className="absolute top-7 right-6">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <img
             src="/qt-icon.png"
             alt="qt"
-            className="opacity-30"
+            className="opacity-5"
           />
         </div>{" "}
         <div className="absolute -bottom-4 -left-2 rotate-45">
