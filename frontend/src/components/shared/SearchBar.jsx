@@ -1,6 +1,6 @@
-import { useColleges } from "@/hooks/useColleges";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { cn } from "@/lib/utils";
+import { useGetAllCollegesQuery } from "@/redux/api/collegesApi";
 import { useEffect, useRef, useState } from "react";
 
 // react icons
@@ -11,7 +11,7 @@ const SearchBar = ({ className, shortcut = true }) => {
   const [inputFocus, setInputFocus] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const ref = useRef(null);
-  const { data: colleges } = useColleges();
+  const { data: colleges, error, isLoading } = useGetAllCollegesQuery();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -30,9 +30,10 @@ const SearchBar = ({ className, shortcut = true }) => {
 
   useOutsideClick(ref, () => setInputFocus(false));
 
-  const filteredColleges = colleges.filter((college) =>
-    college.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredColleges =
+    colleges?.data?.filter((college) =>
+      college.name.toLowerCase().includes(searchQuery.toLowerCase())
+    ) || [];
 
   return (
     <div

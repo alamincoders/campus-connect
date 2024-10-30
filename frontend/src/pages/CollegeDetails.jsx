@@ -1,18 +1,34 @@
-import { useColleges } from "@/hooks/useColleges";
-import { useEffect } from "react";
+import { useGetSingleCollegeQuery } from "@/redux/api/collegesApi";
 import { useParams } from "react-router-dom";
 
 const CollegeDetails = () => {
   const { collegeId } = useParams();
-  const { singleCollege, data: college } = useColleges();
 
-  console.log(college);
+  const {
+    data: college,
+    error,
+    isLoading,
+  } = useGetSingleCollegeQuery(collegeId);
 
-  useEffect(() => {
-    singleCollege(collegeId);
-  }, [collegeId, singleCollege]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  return <div>CollegeDetails</div>;
+  if (error) {
+    return <div>Error: {error?.message || "unknown error"}</div>;
+  }
+
+  if (!college || !college.data) {
+    return <div>College not found</div>;
+  }
+
+  const { name, admissionDate } = college.data;
+
+  return (
+    <div>
+      CollegeDetails {name} {admissionDate}
+    </div>
+  );
 };
 
 export default CollegeDetails;
