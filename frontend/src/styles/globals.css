@@ -160,3 +160,21 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gradient-to-t from-primary_main to-secondary_main;
 }
+
+/* footer design */
+
+.footer-heading {
+  @apply text-2xl font-semibold mb-[30px] pb-[5px] relative after:content-[''] after:w-[70px] after:h-[1px] after:bg-primary_main after:absolute after:bottom-0 after:left-0;
+}
+
+.footer_social_icon {
+  @apply w-10 h-10 bg-[#ffffff47] text-base leading-10 inline-flex items-center justify-center rounded-full cursor-pointer hover:bg-primary_main transition-all duration-300 ease-in-out;
+}
+
+.footer_quick_links {
+  @apply inline-block text-[#b2c0d8] hover:text-white transition-all duration-300 ease-in-out;
+}
+
+.footer_social_icon_contact {
+  @apply w-10 h-10 bg-primary_main text-base leading-10 inline-flex items-center justify-center rounded-full cursor-pointer hover:bg-[#ffffff47] transition-all duration-300 ease-in-out;
+}
