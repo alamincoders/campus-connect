@@ -8,7 +8,7 @@ const OurColleges = () => {
       <div className="container_fluid">
         <div className=" space-y-8 lg:space-y-0 lg:flex items-end justify-between gap-8">
           <SubHeading
-            heading="Our College Lists"
+            heading="Endorsed For You"
             sub_heading="Our Colleges"
           />
           <SearchBar />
