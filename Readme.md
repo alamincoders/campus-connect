@@ -1,6 +1,6 @@
-# Campus Connect
+# QEDU - Campus
 
-Campus Connect is a web application built with the MERN stack, designed to provide a seamless and engaging interface for users to explore, search, and book college facilities and services. This project enables general users to search for colleges, view detailed information, submit applications, and leave reviews for colleges.
+QEDU - Campus is a web application built with the MERN stack, designed to provide a seamless and engaging interface for users to explore, search, and book college facilities and services. This project enables general users to search for colleges, view detailed information, submit applications, and leave reviews for colleges.
 
 ## Project Overview
 
