@@ -1,5 +1,6 @@
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
 import AdmissionPage from "./AdmissionPage";
+import AdmissionForm from "./AdmissionForm";
 
 const Admission = () => {
   return (
@@ -8,7 +9,7 @@ const Admission = () => {
         page_name="Admission"
         items={[{ label: "Home", path: "/" }, { label: "Admission" }]}
       />
-      <AdmissionPage />
+      <AdmissionForm />
     </>
   );
 };

@@ -1,3 +1,6 @@
+import CollegeInformation from "@/components/screens/CollegeInformation";
+import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
+import Spinner from "@/components/ui/spinner";
 import { useGetSingleCollegeQuery } from "@/redux/api/collegesApi";
 import { useParams } from "react-router-dom";
 
@@ -11,7 +14,7 @@ const CollegeDetails = () => {
   } = useGetSingleCollegeQuery(collegeId);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {
@@ -21,15 +24,19 @@ const CollegeDetails = () => {
   if (!college || !college.data) {
     return <div>College not found</div>;
   }
-
-  const { name, admissionDate } = college.data;
-
-  console.log(college.data);
-
   return (
-    <div>
-      CollegeDetails {name} {admissionDate}
-    </div>
+    <>
+      <BreadcrumbSection
+        page_name="College Details"
+        items={[
+          { label: "Home", path: "/" },
+          { label: "Colleges", path: "/colleges" },
+          { label: "College Details" },
+        ]}
+      />
+
+      <CollegeInformation college={college.data} />
+    </>
   );
 };
 
