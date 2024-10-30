@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -66,6 +67,13 @@ export function useAuth() {
       await updateProfile(userCredential.user, {
         displayName: name, // Set displayName with name field
       });
+
+      // Send verification email
+      await sendEmailVerification(userCredential.user);
+
+      toast.success(
+        "Registration successful! Please check your email to verify your account."
+      );
       setUser({
         ...userCredential.user,
         displayName: name,
@@ -80,8 +88,7 @@ export function useAuth() {
           token: userCredential.user.accessToken,
         })
       );
-      toast.success("Registration successful!");
-      navigate("/");
+      navigate("/"); // Redirect after sign up
       reset();
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
@@ -99,6 +106,14 @@ export function useAuth() {
         email,
         password
       );
+
+      // Check if the user's email is verified
+      if (!userCredential.user.emailVerified) {
+        toast.error("Please verify your email before logging in.");
+        await signOut(auth);
+        return;
+      }
+
       setUser(userCredential.user);
       toast.success("Login successful!");
       navigate("/");
