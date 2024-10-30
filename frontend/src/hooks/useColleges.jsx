@@ -1,5 +1,5 @@
+import { CollegeServices } from "@/services/college.services";
 import { useCallback, useEffect, useState } from "react";
-import { CollegeServices } from "./CollegeServices";
 
 export const useColleges = () => {
   const [data, setData] = useState([]);
@@ -14,7 +14,7 @@ export const useColleges = () => {
     setError(null);
     try {
       const response = await CollegeServices.getAllColleges();
-      setData(response);
+      setData(response.data);
     } catch (err) {
       setError(err);
     } finally {
@@ -28,7 +28,7 @@ export const useColleges = () => {
     setError(null);
     try {
       const response = await CollegeServices.getSingleCollege(id);
-      setData(response);
+      setData(response.data);
     } catch (err) {
       setError(err);
     } finally {

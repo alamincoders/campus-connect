@@ -1,5 +1,6 @@
 import MainLayout from "@/layouts/MainLayout";
 import Admission from "@/pages/Admission";
+import CollegeDetails from "@/pages/CollegeDetails";
 import Colleges from "@/pages/Colleges";
 import ErrorPage from "@/pages/ErrorPage";
 import ForgotPassword from "@/pages/ForgotPassword";
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/colleges",
         element: <Colleges />,
+      },
+      {
+        path: "/colleges/:collegeId",
+        element: <CollegeDetails />,
       },
       {
         path: "/admission",
