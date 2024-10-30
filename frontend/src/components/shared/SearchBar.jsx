@@ -17,7 +17,9 @@ const SearchBar = ({ className, shortcut = true }) => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key === "e") {
         event.preventDefault(); // Prevent browser's default search bar opening
-        setInputFocus(true);
+        if (ref.current) {
+          setInputFocus(true);
+        }
       }
     };
 
@@ -26,13 +28,13 @@ const SearchBar = ({ className, shortcut = true }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown, { capture: true });
     };
-  }, [inputFocus]);
+  }, [inputFocus, ref]);
 
   useOutsideClick(ref, () => setInputFocus(false));
 
   const filteredColleges =
     colleges?.data?.filter((college) =>
-      college.name.toLowerCase().includes(searchQuery.toLowerCase())
+      college?.name?.toLowerCase().includes(searchQuery.toLowerCase())
     ) || [];
 
   return (
@@ -81,22 +83,22 @@ const SearchBar = ({ className, shortcut = true }) => {
                 {filteredColleges.length > 0 ? (
                   filteredColleges.map((college, index) => (
                     <Link
-                      to={`/colleges/${college._id}`}
+                      to={`/colleges/${college?._id}`}
                       key={index}
                       className="flex flex-wrap gap-[10px] items-center justify-between w-full hover:bg-gray-100 p-[10px] cursor-pointer rounded-md group"
                     >
                       <div className="flex items-center gap-[15px]">
                         {/*     <img
-                          src={college.picture}
+                          src={college?.picture}
                           alt="avatar"
                           className="w-[50px] h-[50px] object-cover custom_clip"
                         /> */}
                         <div>
                           <h3 className="text-[1.1rem] font-[500] text-gray-800">
-                            {college.name}
+                            {college?.name}
                           </h3>
                           <p className="text-[0.8rem] break-all text-gray-500">
-                            <b>Next Admission Date:</b> {college.admissionDate}
+                            <b>Next Admission Date:</b> {college?.admissionDate}
                           </p>
                         </div>
                       </div>
