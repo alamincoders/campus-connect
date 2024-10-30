@@ -36,7 +36,7 @@ const NavbarSection = () => {
       <div className="flex items-center justify-between container_fluid">
         <Link to="/">
           <img
-            src="/logo.svg"
+            src="/logo-main.png"
             alt="logo"
             className="max-w-60 w-full px-3"
           />

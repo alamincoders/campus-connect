@@ -117,7 +117,7 @@ const FooterSection = () => {
   ];
 
   return (
-    <footer className="bg-secondary_main-950 text-white py-16 lg:py-[90px] relative">
+    <section className="bg-secondary_main-950 text-white py-16 lg:py-[90px] relative">
       <div className="container_fluid">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
           {/* About Us Section */}
@@ -182,7 +182,7 @@ const FooterSection = () => {
           </FooterColumn>
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 

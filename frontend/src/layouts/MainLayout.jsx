@@ -1,3 +1,4 @@
+import CopyrightSection from "@/components/shared/CopyrightSection";
 import FooterSection from "@/components/shared/FooterSection";
 import NavbarSection from "@/components/shared/NavbarSection";
 import TopNavSection from "@/components/shared/TopNavSection";
@@ -15,6 +16,7 @@ const MainLayout = () => {
       </main>
       <footer>
         <FooterSection />
+        <CopyrightSection/>
       </footer>
     </>
   );
