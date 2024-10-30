@@ -11,14 +11,12 @@ const LoginPage = () => {
   const {
     login,
     loading,
-    error,
+    errors,
     user,
     loginWithGoogle,
     loginWithFacebook,
     register,
   } = useAuth();
-
-  console.log(user)
 
   return (
     <div className="flex font-poppins items-center justify-center min-w-screen min-h-screen relative">
@@ -70,8 +68,8 @@ const LoginPage = () => {
                   placeholder="Email"
                   {...register("email", { required: "Email is required" })}
                 />
-                {error?.email && (
-                  <p className="text-red-500 text-sm">{error.email.message}</p>
+                {errors?.email && (
+                  <p className="text-red-500 text-sm">{errors.email.message}</p>
                 )}
               </div>
               <div>
@@ -98,9 +96,9 @@ const LoginPage = () => {
                     required: "Password is required",
                   })}
                 />
-                {error?.password && (
+                {errors?.password && (
                   <p className="text-red-500 text-sm">
-                    {error.password.message}
+                    {errors.password.message}
                   </p>
                 )}
               </div>

@@ -149,12 +149,14 @@ export function useAuth() {
     }
   };
 
+  // Function to send password reset email
   const forgotPassword = async (data) => {
     const { email } = data;
     try {
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset email sent!");
       reset();
+      navigate("/login");
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
     }

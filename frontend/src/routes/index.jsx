@@ -9,7 +9,6 @@ import HomePage from "@/pages/HomePage";
 import LoginPage from "@/pages/LoginPage";
 import MyCollege from "@/pages/MyCollege";
 import RegisterPage from "@/pages/RegisterPage";
-import ResetPassword from "@/pages/ResetPassword";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -59,9 +58,5 @@ export const router = createBrowserRouter([
   {
     path: "/forgot-password",
     element: <ForgotPassword />,
-  },
-  {
-    path: "/reset-password",
-    element: <ResetPassword />,
   },
 ]);

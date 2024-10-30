@@ -2,7 +2,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { LogOutIcon } from "lucide-react";
 import { useState } from "react";
 import { FaGraduationCap } from "react-icons/fa";
-import { MdDashboardCustomize, MdKeyboardArrowDown } from "react-icons/md";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { MdDashboardCustomize } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const LoginUserDropdown = () => {
@@ -21,22 +22,22 @@ const LoginUserDropdown = () => {
       route: "/profile", // Define route for "Profile"
     },
     {
-      label: "Logout",
+      label: "SIGN OUT",
       icon: <LogOutIcon size={14} />,
       action: logout, // Define action for "Logout"
     },
   ];
 
   const handleActionClick = (label) => {
-    if (label === "Logout") {
+    if (label === "SIGN OUT") {
       logout();
     }
     setIsButtonActive(false); // Close dropdown after an action
   };
 
   return (
-    <div className="flex items-center rounded border-none outline-none text-secondary justify-between relative">
-      <button className="text-base ml-6 rounded-full w-10 h-10 bg-primary_main-100 text-secondary_main transition-all duration-500 cursor-auto">
+    <div className="flex items-center rounded-full pr-1 border outline-none text-secondary justify-between relative">
+      <button className="text-base  rounded-full w-10 h-10 bg-primary_main-100 text-secondary_main transition-all duration-500 cursor-auto ">
         {user?.avatar ? (
           <img
             src={user.avatar}
@@ -44,15 +45,15 @@ const LoginUserDropdown = () => {
             className="w-full h-full object-cover rounded-full"
           />
         ) : (
-          user?.name?.charAt(0)?.toUpperCase()
+          user?.displayName?.charAt(0)?.toUpperCase()
         )}
       </button>
 
       <div
         onClick={() => setIsButtonActive(!isButtonActive)}
-        className="text-secondary_main w-[50px] py-1.5 inline items-center justify-center cursor-pointer rounded-r"
+        className="text-secondary_main w-mx text-sm py-1.5 inline-flex ml-2 items-center justify-center cursor-pointer rounded-r"
       >
-        <MdKeyboardArrowDown className="text-[2rem]" />
+        {user?.displayName} <IoMdArrowDropdown />
       </div>
 
       <ul
