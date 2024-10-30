@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
 import { ArrowLeft } from "lucide-react";
-import { FaTruckLoading } from "react-icons/fa";
+import { FaSpinner } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
@@ -85,9 +85,9 @@ const RegisterPage = () => {
                 disabled={loading}
               >
                 {loading ? (
-                  <>
-                    <FaTruckLoading /> Loading...
-                  </>
+                  <div className="inline-flex items-center justify-center gap-2">
+                    <FaSpinner className="animate-spin" /> Loading...
+                  </div>
                 ) : (
                   "Sign Up"
                 )}

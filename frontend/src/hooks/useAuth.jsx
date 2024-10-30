@@ -81,7 +81,7 @@ export function useAuth() {
         })
       );
       toast.success("Registration successful!");
-      navigate(-1);
+      navigate("/");
       reset();
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
@@ -100,6 +100,9 @@ export function useAuth() {
         password
       );
       setUser(userCredential.user);
+      toast.success("Login successful!");
+      navigate("/");
+      reset();
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
     } finally {
@@ -112,6 +115,8 @@ export function useAuth() {
       setLoading(true);
       const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user);
+      toast.success("Login successful!");
+      navigate("/");
     } catch (error) {
       console.error("Google Login Error:", error);
     } finally {
@@ -124,6 +129,8 @@ export function useAuth() {
       setLoading(true);
       const result = await signInWithPopup(auth, facebookProvider);
       setUser(result.user);
+      toast.success("Login successful!");
+      navigate("/");
     } catch (error) {
       console.error("Facebook Login Error:", error);
     } finally {
@@ -136,6 +143,7 @@ export function useAuth() {
       await signOut(auth);
       setUser(null);
       Cookies.remove("user");
+      toast.success("Logout successful!");
     } catch (error) {
       console.error("Logout Error:", error);
     }
@@ -145,7 +153,8 @@ export function useAuth() {
     const { email } = data;
     try {
       await sendPasswordResetEmail(auth, email);
-      console.log("Password reset email sent");
+      toast.success("Password reset email sent!");
+      reset();
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
     }

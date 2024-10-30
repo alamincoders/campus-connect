@@ -1,12 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/hooks/useAuth";
 import { ArrowLeft } from "lucide-react";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaSpinner } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const {
+    login,
+    loading,
+    error,
+    user,
+    loginWithGoogle,
+    loginWithFacebook,
+    register,
+  } = useAuth();
+
+  console.log(user)
 
   return (
     <div className="flex font-poppins items-center justify-center min-w-screen min-h-screen relative">
@@ -26,16 +38,22 @@ const LoginPage = () => {
 
             <div className="flex items-center justify-center mt-5 flex-wrap">
               <h5 className="text-base font-roboto mr-5">Login with:</h5>
-              <button className="hover:scale-125 transition-transform duration-300 shadow-lg p-2 rounded-lg m-1">
+              <button
+                onClick={loginWithGoogle}
+                className="hover:scale-125 transition-transform duration-300 shadow-lg p-2 rounded-lg m-1"
+              >
                 <FcGoogle />
               </button>{" "}
-              <button className="hover:scale-125 transition-transform duration-300 shadow-lg p-2 rounded-lg m-1">
+              <button
+                onClick={loginWithFacebook}
+                className="hover:scale-125 transition-transform duration-300 shadow-lg p-2 rounded-lg m-1"
+              >
                 <FaFacebook className="text-blue-400" />
               </button>
             </div>
             <form
               action="#"
-              method="post"
+              onSubmit={login}
               className="space-y-4"
             >
               <div>
@@ -50,8 +68,11 @@ const LoginPage = () => {
                   className="focus:scale-105 duration-300 ease-in-out transition-transform"
                   type="email"
                   placeholder="Email"
-                  required
+                  {...register("email", { required: "Email is required" })}
                 />
+                {error?.email && (
+                  <p className="text-red-500 text-sm">{error.email.message}</p>
+                )}
               </div>
               <div>
                 <label
@@ -73,14 +94,28 @@ const LoginPage = () => {
                   className="focus:scale-105 duration-300 ease-in-out transition-transform"
                   type="password"
                   placeholder="Password"
-                  required
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
                 />
+                {error?.password && (
+                  <p className="text-red-500 text-sm">
+                    {error.password.message}
+                  </p>
+                )}
               </div>
               <button
                 className="bg-primary_main hover:bg-secondary_main shadow-lg mt-6 p-2 text-white rounded w-full transform hover:scale-105 hover:from-secondary_main hover:to-primary_main transition duration-300 ease-in-out"
                 type="submit"
+                disabled={loading}
               >
-                SIGN IN
+                {loading ? (
+                  <div className="inline-flex items-center justify-center gap-2">
+                    <FaSpinner className="animate-spin" /> Loading...
+                  </div>
+                ) : (
+                  "SIGN IN"
+                )}
               </button>
             </form>
 

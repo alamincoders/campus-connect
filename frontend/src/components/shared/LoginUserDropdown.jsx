@@ -37,7 +37,15 @@ const LoginUserDropdown = () => {
   return (
     <div className="flex items-center rounded border-none outline-none text-secondary justify-between relative">
       <button className="text-base ml-6 rounded-full w-10 h-10 bg-primary_main-100 text-secondary_main transition-all duration-500 cursor-auto">
-        {user?.displayName.charAt(0)}
+        {user?.avatar ? (
+          <img
+            src={user.avatar}
+            alt="Avatar"
+            className="w-full h-full object-cover rounded-full"
+          />
+        ) : (
+          user?.name?.charAt(0)?.toUpperCase()
+        )}
       </button>
 
       <div
