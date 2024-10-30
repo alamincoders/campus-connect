@@ -10,6 +10,7 @@ import MyCollege from "@/pages/MyCollege";
 import ProfilePage from "@/pages/ProfilePage";
 import RegisterPage from "@/pages/RegisterPage";
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "./private.route";
 
 export const router = createBrowserRouter([
   {
@@ -36,16 +37,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission />,
+        element: <PrivateRoute element={Admission} />,
       },
       {
         path: "/my-college",
-        element: <MyCollege />,
+        element: <PrivateRoute element={MyCollege} />,
       },
-
       {
         path: "/profile",
-        element: <ProfilePage />,
+        element: <PrivateRoute element={ProfilePage} />,
       },
     ],
   },

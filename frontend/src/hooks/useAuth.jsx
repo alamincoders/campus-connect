@@ -10,7 +10,7 @@ import {
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { auth, facebookProvider, googleProvider } from "../services/firebase";
 
@@ -18,6 +18,8 @@ export function useAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/"; // Set default to "/"
   const {
     register,
     handleSubmit,
@@ -25,6 +27,8 @@ export function useAuth() {
     setError,
     formState: { errors },
   } = useForm();
+
+  console.log(from);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -88,7 +92,7 @@ export function useAuth() {
           token: userCredential.user.accessToken,
         })
       );
-      navigate("/"); // Redirect after sign up
+      navigate(from, { replace: true }); // Redirect after sign up
       reset();
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
@@ -116,7 +120,7 @@ export function useAuth() {
 
       setUser(userCredential.user);
       toast.success("Login successful!");
-      navigate("/");
+      navigate(from, { replace: true });
       reset();
     } catch (error) {
       setError("email", { type: "manual", message: error.message });
@@ -131,7 +135,7 @@ export function useAuth() {
       const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user);
       toast.success("Login successful!");
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (error) {
       console.error("Google Login Error:", error);
     } finally {
@@ -145,7 +149,7 @@ export function useAuth() {
       const result = await signInWithPopup(auth, facebookProvider);
       setUser(result.user);
       toast.success("Login successful!");
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (error) {
       console.error("Facebook Login Error:", error);
     } finally {

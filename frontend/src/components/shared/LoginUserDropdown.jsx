@@ -67,23 +67,23 @@ const LoginUserDropdown = () => {
           <li
             role="button"
             key={index}
-            className="py-2 px-3 flex items-center gap-[5px] hover:bg-secondary_main rounded-t cursor-pointer"
+            className="flex items-center gap-[5px] hover:bg-secondary_main rounded-t cursor-pointer"
             onClick={() => handleActionClick(item.label)}
           >
             {item.route ? (
               <Link
                 to={item.route}
-                className="flex items-center gap-[5px] w-full h-full"
+                className="flex items-center gap-[5px] w-full h-full py-2 px-3 "
                 onClick={() => setIsButtonActive(false)}
               >
                 {item.icon}
                 {item.label}
               </Link>
             ) : (
-              <>
+              <div className="flex items-center gap-[5px] w-full h-full py-2 px-3 ">
                 {item.icon}
                 {item.label}
-              </>
+              </div>
             )}
           </li>
         ))}
