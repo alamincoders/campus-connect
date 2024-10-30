@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft } from "lucide-react";
-import { FaFacebook } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
@@ -95,15 +93,6 @@ const RegisterPage = () => {
                   </span>
                 </Link>
               </h3>
-            </div>
-
-            <div className="flex items-center justify-center mt-5 flex-wrap">
-              <button className="hover:scale-105 transition-transform duration-300 shadow-lg p-2 rounded-lg m-1">
-                <FcGoogle />
-              </button>{" "}
-              <button className="hover:scale-105 transition-transform duration-300 shadow-lg p-2 rounded-lg m-1">
-                <FaFacebook className="text-blue-400" />
-              </button>
             </div>
 
             <div className="text-gray-500 flex text-center flex-col mt-4 items-center text-sm">
