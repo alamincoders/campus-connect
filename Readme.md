@@ -41,7 +41,7 @@ This application allows users to:
 
 ## Technologies Used
 
-- **Frontend**: React.js, Tailwind CSS, Shadcn.
+- **Frontend**: React.js, Tailwind CSS, Shadcn, Firebase(Auth).
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: Email/password, Google, and social media logins.
