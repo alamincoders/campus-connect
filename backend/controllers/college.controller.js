@@ -5,7 +5,7 @@ exports.getColleges = async (req, res) => {
   res.json({ message: "Colleges fetched", data: colleges });
 };
 
-exports.getCollegeDetails = async (req, res) => {
+exports.getSingleCollege = async (req, res) => {
   const college = await College.findById(req.params.id);
   if (!college) return res.status(404).json({ error: "College not found" });
   res.json({ message: "College details fetched", data: college });
