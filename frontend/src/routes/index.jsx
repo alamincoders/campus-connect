@@ -1,5 +1,6 @@
 import MainLayout from "@/layouts/MainLayout";
 import Admission from "@/pages/Admission";
+import AdmissionForm from "@/pages/AdmissionForm";
 import CollegeDetails from "@/pages/CollegeDetails";
 import Colleges from "@/pages/Colleges";
 import ErrorPage from "@/pages/ErrorPage";
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/admission",
         element: <Admission />,
+      },
+      {
+        path: "/admission-form",
+        element: <PrivateRoute element={AdmissionForm} />,
       },
       {
         path: "/my-college",

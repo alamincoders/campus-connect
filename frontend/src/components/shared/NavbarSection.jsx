@@ -82,7 +82,7 @@ const NavbarSection = () => {
           <div className="items-center gap-[10px] flex">
             {!user && (
               <Link
-                to="/login"
+                to="/admission"
                 className="py-3.5 2xl:py-[21.5px] px-8 text-white bg-primary_main hover:text-primary_main-100 hover:bg-secondary_main transition-all duration-300 lg:flex hidden font-medium uppercase rounded-[2px] 2xl:rounded-none "
               >
                 Admission Open

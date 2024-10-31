@@ -21,7 +21,7 @@ const LoginPage = () => {
   return (
     <div className="flex font-poppins items-center justify-center min-w-screen min-h-screen relative">
       <Button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
         className="absolute top-10 left-10"
       >
         <ArrowLeft /> Go Back
