@@ -11,12 +11,12 @@ const ImageGallery = () => {
         <div className="space-y-8 lg:space-y-0 lg:flex items-end justify-between gap-8">
           <SubHeading
             className="max-w-[686px] w-full"
-            heading="Last Year We Have Completed Gallery Showcase"
+            heading="Last Year Gallery Showcase"
             sub_heading="Our Recent Gallery"
           />
 
-          <Link to="/about-us">
-            <Button className="bg-secondary_main before:bg-primary_main py-5 px-6 lg:px-[30px]">
+          <Link className="inline-block" to="/about-us">
+            <Button className="bg-secondary_main before:bg-primary_main py-3 lg:py-5 px-6 lg:px-[30px]">
               More About Us <FaArrowRightLong />
             </Button>
           </Link>

@@ -19,7 +19,7 @@ const ResearchPaper = ({ paper }) => {
         </span>
       </div>
       <div className="p-4 lg:p-[30px] space-y-4 relative">
-        <h3 className="text-[#141b22] group-hover:text-white text-[28px] leading-none font-semibold">
+        <h3 className="text-[#141b22] group-hover:text-white text-[28px] leading-none font-semibold truncate">
           <Link to={`/researches/${paper.id}`}>{paper.title}</Link>
         </h3>
         <p className="text-[#777777] group-hover:text-white/70 text-base">
