@@ -1,5 +1,4 @@
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
-import AdmissionPage from "./AdmissionPage";
 import AdmissionForm from "./AdmissionForm";
 
 const Admission = () => {

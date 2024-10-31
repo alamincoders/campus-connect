@@ -1,6 +1,6 @@
 import MainLayout from "@/layouts/MainLayout";
-import Admission from "@/pages/Admission";
 import AdmissionForm from "@/pages/AdmissionForm";
+import AdmissionPage from "@/pages/AdmissionPage";
 import CollegeDetails from "@/pages/CollegeDetails";
 import Colleges from "@/pages/Colleges";
 import ErrorPage from "@/pages/ErrorPage";
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission />,
+        element: <AdmissionPage />,
       },
       {
         path: "/admission-form",

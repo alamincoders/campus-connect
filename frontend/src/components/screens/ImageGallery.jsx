@@ -15,7 +15,10 @@ const ImageGallery = () => {
             sub_heading="Our Recent Gallery"
           />
 
-          <Link className="inline-block" to="/about-us">
+          <Link
+            className="inline-block"
+            to="/about-us"
+          >
             <Button className="bg-secondary_main before:bg-primary_main py-3 lg:py-5 px-6 lg:px-[30px]">
               More About Us <FaArrowRightLong />
             </Button>
