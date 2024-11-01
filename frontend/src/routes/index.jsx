@@ -1,6 +1,6 @@
 import MainLayout from "@/layouts/MainLayout";
-import AdmissionForm from "@/pages/AdmissionForm";
-import AdmissionPage from "@/pages/AdmissionPage";
+import Admission from "@/pages/Admission";
+import AdmissionFormPage from "@/pages/AdmissionFormPage";
 import CollegeDetails from "@/pages/CollegeDetails";
 import Colleges from "@/pages/Colleges";
 import ErrorPage from "@/pages/ErrorPage";
@@ -38,11 +38,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <AdmissionPage />,
+        element: <Admission />,
       },
       {
-        path: "/admission-form",
-        element: <PrivateRoute element={AdmissionForm} />,
+        path: "/admission-form/:collegeId",
+        element: <PrivateRoute element={AdmissionFormPage} />,
       },
       {
         path: "/my-college",

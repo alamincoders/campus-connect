@@ -1,7 +1,9 @@
 const express = require("express");
 const {
   getColleges,
+  getMyCollege,
   createCollege,
+  createMyCollege,
   updateCollege,
   deleteCollege,
   getSingleCollege,

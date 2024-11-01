@@ -14,9 +14,25 @@ export const collegesApi = createApi({
     getSingleCollege: builder.query({
       query: (id) => `/colleges/${id}`,
     }),
+
+    admissionCollege: builder.mutation({
+      query: (newCollege) => ({
+        url: "/colleges/my-colleges",
+        method: "POST",
+        body: newCollege,
+      }),
+    }),
+    getAdmissionCollege: builder.query({
+      query: () => `/colleges/my-colleges`,
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllCollegesQuery, useGetSingleCollegeQuery } = collegesApi;
+export const {
+  useGetAllCollegesQuery,
+  useGetSingleCollegeQuery,
+  useGetAdmissionCollegeQuery,
+  useAdmissionCollegeMutation,
+} = collegesApi;
