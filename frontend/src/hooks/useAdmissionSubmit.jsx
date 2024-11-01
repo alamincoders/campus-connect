@@ -2,7 +2,6 @@ import {
   useAdmissionCollegeMutation,
   useGetAllCollegesQuery,
 } from "@/redux/api/collegesApi";
-import { Cloudinary } from "@cloudinary/url-gen";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -16,7 +15,6 @@ export const useAdmissionForm = () => {
   const [selectedCollegeId, setSelectedCollegeId] = useState("");
   const navigate = useNavigate();
 
-  const cld = new Cloudinary({ cloud: { cloudName: "dzsu72yx6" } });
   const loggingInUser = JSON.parse(Cookies.get("user"));
   const userId = loggingInUser?.id;
 

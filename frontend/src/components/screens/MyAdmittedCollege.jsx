@@ -4,7 +4,6 @@ import MyCollegeInfo from "./MyCollegeInfo";
 
 const MyAdmittedCollege = () => {
   const { data: colleges, error, isLoading } = useGetAdmissionCollegeQuery();
-  console.log(colleges?.data);
 
   if (error) {
     console.error(error);
