@@ -187,7 +187,7 @@ const CollegeInformation = ({ college }) => {
                   </p>
 
                   <Link
-                    to={`/admission-form/${college._id}`}
+                    to={`/admission-form/${_id}`}
                     className="p-4 block"
                   >
                     <Button className="w-full py-5 rounded-lg inline-block">

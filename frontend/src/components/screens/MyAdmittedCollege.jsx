@@ -1,9 +1,10 @@
 import { useGetAdmissionCollegeQuery } from "@/redux/api/collegesApi";
 import Spinner from "../ui/spinner";
+import MyCollegeInfo from "./MyCollegeInfo";
 
 const MyAdmittedCollege = () => {
   const { data: colleges, error, isLoading } = useGetAdmissionCollegeQuery();
-  console.log(colleges);
+  console.log(colleges?.data);
 
   if (error) {
     console.error(error);
@@ -20,7 +21,12 @@ const MyAdmittedCollege = () => {
     return <div>No colleges found</div>;
   }
 
-  return <div>MyAdmittedCollege</div>;
+  return colleges?.data.map((college) => (
+    <MyCollegeInfo
+      key={college._id}
+      college={college}
+    />
+  ));
 };
 
 export default MyAdmittedCollege;
