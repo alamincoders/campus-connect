@@ -1,10 +1,11 @@
 import AdmissionForm from "@/components/screens/AdmissionForm";
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
-import { Button } from "@/components/ui/button";
-import Spinner from "@/components/ui/spinner";
-import { useGetAdmissionCollegeQuery } from "@/redux/api/collegesApi";
+import { useEffect } from "react";
 
 const AdmissionFormPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   /*   const {
     data: college,
     error,

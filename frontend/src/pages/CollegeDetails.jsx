@@ -2,10 +2,15 @@ import CollegeInformation from "@/components/screens/CollegeInformation";
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
 import Spinner from "@/components/ui/spinner";
 import { useGetSingleCollegeQuery } from "@/redux/api/collegesApi";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const CollegeDetails = () => {
   const { collegeId } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const {
     data: college,

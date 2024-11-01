@@ -1,7 +1,11 @@
 import AdmissionColleges from "@/components/screens/AdmissionColleges";
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
+import { useEffect } from "react";
 
 const Admission = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <BreadcrumbSection

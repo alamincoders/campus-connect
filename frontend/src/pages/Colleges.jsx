@@ -1,7 +1,12 @@
 import CollegeLists from "@/components/screens/CollegeLists";
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
+import { useEffect } from "react";
 
 const Colleges = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <BreadcrumbSection
