@@ -37,7 +37,7 @@ BreadcrumbItem.displayName = "BreadcrumbItem";
 
 const BreadcrumbLink = React.forwardRef(
   ({ asChild, className, ...props }, ref) => {
-    const Comp = asChild ? Slot : "a";
+    const Comp = asChild ? Slot : "span"; // Use "span" to prevent nesting issues
 
     return (
       <Comp

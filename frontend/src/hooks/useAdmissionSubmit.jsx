@@ -33,7 +33,7 @@ export const useAdmissionForm = () => {
       );
       if (matchedCollege) {
         setSelectedCollegeId(matchedCollege._id);
-        setValue("college", matchedCollege._id); // Set default value
+        setValue("collegeId", matchedCollege._id); // Set default value
       }
     }
   }, [collegeId, colleges, setValue]);
