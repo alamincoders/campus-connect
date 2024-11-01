@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useAdmissionForm } from "@/hooks/useAdmissionSubmit";
+import { FaSpinner } from "react-icons/fa";
 import Spinner from "../ui/spinner";
 
 const AdmissionForm = () => {
@@ -181,8 +182,15 @@ const AdmissionForm = () => {
           <Button
             type="submit"
             className="w-full px-4 py-4 mt-4 text-white bg-primary_main focus:outline-none"
+            disabled={isLoading}
           >
-            Submit Application
+            {isLoading ? (
+              <div className="inline-flex items-center justify-center gap-2">
+                <FaSpinner className="animate-spin" /> Submitting...
+              </div>
+            ) : (
+              "Admission Submit"
+            )}
           </Button>
         </form>
       </div>

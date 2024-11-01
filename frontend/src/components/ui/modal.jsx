@@ -2,6 +2,7 @@
 "use client";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { cn } from "@/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
 import { AnimatePresence, motion } from "framer-motion";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -29,10 +30,12 @@ export function Modal({ children }) {
   return <ModalProvider>{children}</ModalProvider>;
 }
 
-export const ModalTrigger = ({ children, className }) => {
+export const ModalTrigger = ({ asChild, children, className }) => {
   const { setOpen } = useModal();
+  const Comp = asChild ? Slot : "button";
+
   return (
-    <button
+    <Comp
       className={cn(
         "rounded-md text-black dark:text-white text-center relative overflow-hidden",
         className
@@ -40,9 +43,10 @@ export const ModalTrigger = ({ children, className }) => {
       onClick={() => setOpen(true)}
     >
       {children}
-    </button>
+    </Comp>
   );
 };
+
 
 export const ModalBody = ({ children, className }) => {
   const { open } = useModal();

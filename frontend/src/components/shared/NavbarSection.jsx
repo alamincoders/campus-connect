@@ -63,7 +63,7 @@ const NavbarSection = () => {
               </li>
             ))}
             <Modal>
-              <ModalTrigger>
+              <ModalTrigger asChild>
                 <button className="inline-flex">
                   <Search className="mt-2" />
                 </button>

@@ -29,6 +29,7 @@ const Section = ({ title, children }) => (
 
 const CollegeInformation = ({ college }) => {
   const {
+    _id,
     name,
     description,
     image,
@@ -186,7 +187,7 @@ const CollegeInformation = ({ college }) => {
                   </p>
 
                   <Link
-                    to="/admission"
+                    to={`/admission-form/${college._id}`}
                     className="p-4 block"
                   >
                     <Button className="w-full py-5 rounded-lg inline-block">

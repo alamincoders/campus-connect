@@ -37,7 +37,10 @@ const LoginUserDropdown = () => {
 
   return (
     <div className="flex items-center rounded-full pr-1 border outline-none text-secondary justify-between relative">
-      <button className="text-base  rounded-full w-10 h-10 bg-primary_main-100 text-secondary_main transition-all duration-500 cursor-auto ">
+      <button
+        onClick={() => setIsButtonActive(!isButtonActive)}
+        className="text-base cursor-pointer  rounded-full w-10 h-10 bg-primary_main-100 text-secondary_main transition-all duration-500 "
+      >
         {user?.avatar ? (
           <img
             src={user.avatar}
@@ -45,13 +48,17 @@ const LoginUserDropdown = () => {
             className="w-full h-full object-cover rounded-full"
           />
         ) : (
-          user?.displayName?.charAt(0)?.toUpperCase()
+          <img
+            src="/profile.png"
+            alt="Avatar"
+            className="w-full h-full object-cover rounded-full"
+          />
         )}
       </button>
 
       <div
         onClick={() => setIsButtonActive(!isButtonActive)}
-        className="text-secondary_main w-mx text-sm py-1.5 inline-flex ml-2 items-center justify-center cursor-pointer rounded-r"
+        className="text-secondary_main w-mx text-sm py-1.5 hidden md:inline-flex ml-2 items-center justify-center cursor-pointer rounded-r"
       >
         {user?.displayName} <IoMdArrowDropdown />
       </div>

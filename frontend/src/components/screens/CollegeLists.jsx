@@ -6,8 +6,9 @@ const CollegeLists = ({ size }) => {
   const { data: colleges, error, isLoading } = useGetAllCollegesQuery();
 
   if (error) {
-    console.error(error);
-    return <div>Error: {error?.message}</div>;
+    return (
+      <div className="text-red-400 font-medium">Error: {error?.status}</div>
+    );
   }
 
   if (isLoading) {

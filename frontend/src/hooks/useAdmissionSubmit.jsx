@@ -1,6 +1,7 @@
 // hooks/useAdmissionForm.js
 import { useGetAllCollegesQuery } from "@/redux/api/collegesApi";
 import { Cloudinary } from "@cloudinary/url-gen";
+import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,6 +14,9 @@ export const useAdmissionForm = () => {
   const navigate = useNavigate();
 
   const cld = new Cloudinary({ cloud: { cloudName: "dzsu72yx6" } });
+
+  const loggingInUser = JSON.parse(Cookies.get("user"));
+  let userId = loggingInUser?.id;
 
   const {
     register,
@@ -36,7 +40,7 @@ export const useAdmissionForm = () => {
 
   const handleCollegeChange = (value) => {
     setSelectedCollegeId(value);
-    setValue("college", value);
+    setValue("collegeId", value);
   };
 
   const onSubmit = async (data) => {
@@ -44,7 +48,7 @@ export const useAdmissionForm = () => {
       const file = data.image[0];
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("upload_preset", "your_upload_preset");
+      formData.append("upload_preset", "qedu-campus");
 
       // Upload image to Cloudinary
       const response = await fetch(
@@ -56,10 +60,11 @@ export const useAdmissionForm = () => {
       );
       const uploadData = await response.json();
 
-      // Store Cloudinary URL
+      // Store URL
       const imageUrl = uploadData.secure_url;
-      const submissionData = { ...data, image: imageUrl };
+      const submissionData = { ...data, image: imageUrl, userId };
 
+      console.log(submissionData);
       // After successful submission, navigate to the "my-college" page
       navigate("/my-college");
       toast.success("Application submitted successfully!");

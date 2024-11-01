@@ -18,7 +18,10 @@ const CollegeDetails = () => {
   }
 
   if (error) {
-    return <div>Error: {error?.message || "unknown error"}</div>;
+    console.error(error);
+    return (
+      <div className="text-red-400 font-medium">Error: {error?.status}</div>
+    );
   }
 
   if (!college || !college.data) {

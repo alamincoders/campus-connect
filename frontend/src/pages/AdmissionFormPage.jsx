@@ -5,22 +5,25 @@ import Spinner from "@/components/ui/spinner";
 import { useGetAdmissionCollegeQuery } from "@/redux/api/collegesApi";
 
 const AdmissionFormPage = () => {
-/*   const {
+  /*   const {
     data: college,
     error,
     isLoading: collegeLoading,
   } = useGetAdmissionCollegeQuery(); */
 
- /*  if (error) {
+  /*   if (error) {
     console.error(error);
-    return <div>Error: {error?.message}</div>;
+    return (
+      <div className="text-red-400 font-medium">Error: {error?.status}</div>
+    );
   }
+
 
   if (collegeLoading) {
     return <Spinner />;
   } */
 
-/*   if (college.data.length === 1) {
+  /*   if (college.data.length === 1) {
     return (
       <div className="py-16 lg:py-30 bg-[#EFF7FF]">
         <div className="flex flex-col items-center justify-center p-6 max-w-xl mx-auto">
