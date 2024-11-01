@@ -7,7 +7,7 @@ const { protect } = require("../middleware/auth.middleware");
 const router = express.Router();
 
 // College routes
-router.get("/",  getMyCollege);
-router.post("/", createMyCollege);
+router.get("/", protect, getMyCollege);
+router.post("/", protect, createMyCollege);
 
 module.exports = router;

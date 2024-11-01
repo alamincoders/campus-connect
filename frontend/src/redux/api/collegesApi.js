@@ -17,13 +17,13 @@ export const collegesApi = createApi({
 
     admissionCollege: builder.mutation({
       query: (newCollege) => ({
-        url: "/colleges/my-colleges",
+        url: "/my-colleges",
         method: "POST",
         body: newCollege,
       }),
     }),
     getAdmissionCollege: builder.query({
-      query: () => `/colleges/my-colleges`,
+      query: () => `/my-colleges`,
     }),
   }),
 });
