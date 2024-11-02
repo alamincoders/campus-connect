@@ -1,12 +1,10 @@
 import { FaArrowRightLong } from "react-icons/fa6";
-import { PiStarFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import collegeImg from "../../assets/colleges/college-1.webp";
 
 const AdmissionCollegeCard = ({ college }) => {
   return (
     <div className="group bg-[#F0F7FF] hover:bg-white hover:shadow-xl rounded overflow-hidden duration-300 ease-in-out transition-all relative z-0">
-      <div className="relative">
+      {/*   <div className="relative">
         <Link to={`/admission-form/${college._id}`}>
           <img
             src={college?.image ? college.image : collegeImg}
@@ -17,7 +15,7 @@ const AdmissionCollegeCard = ({ college }) => {
         <span className="text-white inline-flex gap-3 items-center bg-secondary_main px-2.5 py-[5px] rounded absolute -bottom-[17px] right-4 lg:right-[30px]">
           <PiStarFill /> {college?.rating}
         </span>
-      </div>
+      </div> */}
       <div className="p-4 lg:p-[30px] space-y-4 relative">
         <h3 className="text-[#141b22] text-[28px] leading-none font-semibold truncate">
           <Link to={`/admission-form/${college._id}`}>{college.name}</Link>
