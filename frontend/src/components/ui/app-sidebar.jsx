@@ -23,7 +23,7 @@ const items = [
   },
   {
     title: "Add Review",
-    url: "/add-review",
+    url: "/profile/add-review",
     icon: StarIcon,
   },
   {

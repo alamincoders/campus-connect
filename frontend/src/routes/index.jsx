@@ -11,6 +11,7 @@ import LoginPage from "@/pages/LoginPage";
 import MyCollege from "@/pages/MyCollege";
 import ProfilePage from "@/pages/ProfilePage";
 import RegisterPage from "@/pages/RegisterPage";
+import ReviewPage from "@/pages/ReviewPage";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./private.route";
 
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <ProfilePage />,
+      },
+      {
+        path: "add-review",
+        element: <ReviewPage />,
       },
     ],
   },
