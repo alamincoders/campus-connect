@@ -47,7 +47,6 @@ export const ModalTrigger = ({ asChild, children, className }) => {
   );
 };
 
-
 export const ModalBody = ({ children, className }) => {
   const { open } = useModal();
 

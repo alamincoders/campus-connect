@@ -6,10 +6,12 @@ import { useEffect, useRef, useState } from "react";
 // react icons
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useModal } from "../ui/modal";
 
 const SearchBar = ({ className, shortcut = true }) => {
   const [inputFocus, setInputFocus] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const { setOpen } = useModal();
   const ref = useRef(null);
   const { data: colleges, error, isLoading } = useGetAllCollegesQuery();
 
@@ -83,6 +85,7 @@ const SearchBar = ({ className, shortcut = true }) => {
                 {filteredColleges.length > 0 ? (
                   filteredColleges.map((college, index) => (
                     <Link
+                      onClick={() => setOpen(false)}
                       to={`/colleges/${college?._id}`}
                       key={index}
                       className="flex flex-wrap gap-[10px] items-center justify-between w-full hover:bg-gray-100 p-[10px] cursor-pointer rounded-md group"
