@@ -5,13 +5,12 @@ import AdmissionCollegeCard from "./AdmissionCollegeCard";
 const AdmissionColleges = ({ size }) => {
   const { data: colleges, error, isLoading } = useGetAllCollegesQuery();
 
- if (error) {
-   console.error(error);
-   return (
-     <div className="text-red-400 font-medium">Error: {error?.status}</div>
-   );
- }
-
+  if (error) {
+    console.error(error);
+    return (
+      <div className="text-red-400 font-medium">Error: {error?.status}</div>
+    );
+  }
 
   if (isLoading) {
     return (

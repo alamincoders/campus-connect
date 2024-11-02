@@ -46,7 +46,7 @@ const AdmissionFormPage = () => {
             to="/my-college"
             className="text-primary_main px-4 py-4 underline underline-offset-4 decoration-primary_main decoration-wavy"
           >
-            See Your Colleges
+            See Your College
           </Link>
         </div>
       </div>
