@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/select";
 import { useAdmissionForm } from "@/hooks/useAdmissionSubmit";
 import { FaSpinner } from "react-icons/fa";
-import Spinner from "../ui/spinner";
 
 const AdmissionForm = () => {
   const {
@@ -23,10 +22,6 @@ const AdmissionForm = () => {
     handleSubmit,
     errors,
   } = useAdmissionForm();
-
-  if (isLoading) {
-    return <Spinner />;
-  }
 
   return (
     <div className="py-16 lg:py-30 bg-[#EFF7FF] -mt-6">

@@ -14,6 +14,7 @@ import RegisterPage from "@/pages/RegisterPage";
 import ReviewPage from "@/pages/ReviewPage";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./private.route";
+import ContactPage from "@/pages/ContactPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,9 +48,9 @@ export const router = createBrowserRouter([
         element: <PrivateRoute element={AdmissionFormPage} />,
       },
       {
-        path: "/my-college",
-        element: <PrivateRoute element={MyCollege} />,
-      },
+        path: "contact-us",
+        element: <ContactPage />,
+      }
     ],
   },
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "add-review",
         element: <ReviewPage />,
+      },
+      {
+        path: "my-college",
+        element: <MyCollege />,
       },
     ],
   },

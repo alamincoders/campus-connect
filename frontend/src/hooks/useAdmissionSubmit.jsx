@@ -9,10 +9,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const useAdmissionForm = () => {
-  const { data: colleges, error, isLoading } = useGetAllCollegesQuery();
+  const { data: colleges, error } = useGetAllCollegesQuery();
   const [admissionCollege] = useAdmissionCollegeMutation(); // Initialize the mutation hook
   const { collegeId } = useParams();
   const [selectedCollegeId, setSelectedCollegeId] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const loggingInUser = JSON.parse(Cookies.get("user"));
@@ -42,7 +43,15 @@ export const useAdmissionForm = () => {
     setValue("collegeId", value);
   };
 
+  if (error) {
+    console.error(error);
+    return (
+      <div className="text-red-400 font-medium">Error: {error?.status}</div>
+    );
+  }
+
   const onSubmit = async (data) => {
+    setIsLoading(true);
     try {
       const file = data.image[0];
       const formData = new FormData();
@@ -67,7 +76,8 @@ export const useAdmissionForm = () => {
       await admissionCollege(submissionData).unwrap();
 
       // Navigate and display success message
-      navigate("/my-college");
+      setIsLoading(false);
+      navigate("/profile");
       toast.success("Application submitted successfully!");
     } catch (error) {
       toast.error("Error submitting application");

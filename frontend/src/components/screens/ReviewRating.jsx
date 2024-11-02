@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
+import { Button } from "../ui/button";
 
 const content = [
   {
@@ -27,7 +30,20 @@ const content = [
 ];
 
 const Experience = () => {
-  const [rating, setRating] = useState(2);
+  const [rating, setRating] = useState(0);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("Form Submitted", { ...data, rating });
+    // Handle form submission logic here
+    reset();
+  };
 
   const getContentIndex = (rating) => {
     if (rating < 3) return 0; // Bad
@@ -72,7 +88,7 @@ const Experience = () => {
             {activeContent.name}
           </motion.h2>
         </div>
-        <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <ReactStars
             count={5}
             onChange={setRating}
@@ -82,6 +98,12 @@ const Experience = () => {
             activeColor="#ffd700"
             isHalf={false}
           />
+
+          {errors.comment && (
+            <p className="text-red-500 text-sm mt-2">
+              {errors.comment.message}
+            </p>
+          )}
           <label
             htmlFor="name"
             className="relative w-full"
@@ -90,11 +112,26 @@ const Experience = () => {
               name="name"
               id="name"
               rows={5}
+              {...register("comment", { required: "Comment is required" })}
               placeholder="How was your experience?"
               className="border-[#e5eaf2] border rounded-md outline-none px-4 py-3 w-full focus:border-[#ffd700] transition-colors duration-300 resize-none placeholder:text-gray-400/50"
             />
           </label>
-        </div>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className=" bg-primary_main mt-5 before:bg-secondary_main text-white py-3 rounded-lg font-semibold"
+          >
+            {isSubmitting ? (
+              "Submitting..."
+            ) : (
+              <div className="flex items-center gap-2">
+                {" "}
+                <Plus /> Add Review
+              </div>
+            )}
+          </Button>
+        </form>
       </div>
     </div>
   );

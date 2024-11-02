@@ -43,7 +43,7 @@ const AdmissionFormPage = () => {
             You have already applied to the maximum number of colleges.
           </p>
           <Link
-            to="/my-college"
+            to="/profile/my-college"
             className="text-primary_main px-4 py-4 underline underline-offset-4 decoration-primary_main decoration-wavy"
           >
             See Your College

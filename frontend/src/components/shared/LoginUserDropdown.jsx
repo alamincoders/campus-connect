@@ -14,7 +14,7 @@ const LoginUserDropdown = () => {
     {
       label: "My College",
       icon: <FaGraduationCap />,
-      route: "/my-college", // Define route for "My College"
+      route: "/profile/my-college", // Define route for "My College"
     },
     {
       label: "Profile",

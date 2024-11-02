@@ -1,4 +1,11 @@
-import { HomeIcon, InfoIcon, LogOut, Settings, StarIcon } from "lucide-react";
+import {
+  GraduationCap,
+  HomeIcon,
+  InfoIcon,
+  LogOut,
+  Settings,
+  StarIcon,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -20,6 +27,11 @@ const items = [
     title: "Home",
     url: "/",
     icon: HomeIcon,
+  },
+  {
+    title: "My College",
+    url: "/profile/my-college",
+    icon: GraduationCap,
   },
   {
     title: "Add Review",

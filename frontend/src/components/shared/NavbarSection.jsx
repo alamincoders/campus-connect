@@ -18,7 +18,7 @@ const NavbarSection = () => {
     { name: "home", path: "/" },
     { name: "colleges", path: "/colleges" },
     { name: "admission", path: "/admission" },
-    { name: "my college", path: "/my-college" },
+    { name: "Contact", path: "/contact-us" },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -65,7 +65,7 @@ const NavbarSection = () => {
             <Modal>
               <ModalTrigger asChild>
                 <button className="inline-flex">
-                  <Search className="mt-2" />
+                  <Search />
                 </button>
               </ModalTrigger>
               <ModalBody>
