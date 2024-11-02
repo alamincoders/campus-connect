@@ -66,9 +66,13 @@ const MyAdmittedCollege = () => {
     );
   }
 
+  const filteredColleges = colleges.filter(
+    (college) => college.userId === user_id
+  );
+
   return (
     <div>
-      {colleges.map((college) => (
+      {filteredColleges.map((college) => (
         <MyCollegeInfo
           key={college._id}
           college={college}
