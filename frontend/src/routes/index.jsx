@@ -1,4 +1,5 @@
 import MainLayout from "@/layouts/MainLayout";
+import ProfileLayout from "@/layouts/ProfileLayout";
 import Admission from "@/pages/Admission";
 import AdmissionFormPage from "@/pages/AdmissionFormPage";
 import CollegeDetails from "@/pages/CollegeDetails";
@@ -48,9 +49,15 @@ export const router = createBrowserRouter([
         path: "/my-college",
         element: <PrivateRoute element={MyCollege} />,
       },
+    ],
+  },
+  {
+    path: "/profile",
+    element: <ProfileLayout />,
+    children: [
       {
-        path: "/profile",
-        element: <PrivateRoute element={ProfilePage} />,
+        index: true,
+        element: <ProfilePage />,
       },
     ],
   },
