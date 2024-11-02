@@ -18,10 +18,6 @@ app.use("/api/colleges", collegeRoutes);
 app.use("/api/my-colleges", myCollegeRoutes);
 app.use("/api/colleges/reviews", reviewRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).json({ error: "Route not found" });
-});
-
 // Define a route for the home page
 app.get("/", (req, res) => {
   res.send(`
@@ -42,6 +38,10 @@ app.get("/", (req, res) => {
     </body>
     </html>
   `);
+});
+
+app.use((req, res, next) => {
+  res.status(404).json({ error: "Route not found" });
 });
 
 module.exports = app;
