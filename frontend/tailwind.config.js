@@ -100,6 +100,7 @@ export default {
   		margin: {
   			'30': '120px'
   		}
+		
   	}
   },
   plugins: [

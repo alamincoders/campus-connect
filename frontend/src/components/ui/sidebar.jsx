@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 import { PanelLeft } from "lucide-react";
@@ -243,7 +244,7 @@ const SidebarTrigger = React.forwardRef(
         data-sidebar="trigger"
         size="icon"
         className={cn(
-          "absolute top-4 z-50 rounded-r  bg-primary_main-300 text-secondary_main hover:bg-secondary_main hover:text-white duration-300 transition-all inline-flex justify-center items-center p-2",
+          "absolute z-50 rounded-br  bg-primary_main hover:bg-secondary_main text-white duration-300 transition-all inline-flex justify-center items-center p-2",
           className
         )}
         onClick={(event) => {
@@ -607,7 +608,7 @@ const SidebarMenuSub = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     data-sidebar="menu-sub"
     className={cn(
-      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5",
+      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 px-2.5 py-0.5",
       "group-data-[collapsible=icon]:hidden",
       className
     )}
