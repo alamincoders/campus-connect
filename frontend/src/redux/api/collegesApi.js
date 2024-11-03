@@ -28,12 +28,12 @@ export const collegesApi = createApi({
     }),
 
     getReviews: builder.query({
-      query: (collegeId) => `/reviews/${collegeId}`,
+      query: (collegeId) => `/colleges/reviews/${collegeId}`,
     }),
 
     createReview: builder.mutation({
       query: (reviewData) => ({
-        url: "/reviews",
+        url: "/colleges/reviews",
         method: "POST",
         body: reviewData,
       }),

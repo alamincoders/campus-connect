@@ -8,6 +8,8 @@ import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Button } from "../ui/button";
 import Spinner from "../ui/spinner";
 
@@ -40,18 +42,19 @@ const Experience = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
   const [rating, setRating] = useState(0);
   const [colleges, setColleges] = useState([]);
   const { data, error, isLoading } = useGetAdmissionCollegeQuery();
   const user = JSON.parse(Cookies.get("user"));
 
-  const {
-    data: reviewData,
-    error: reviewError,
-    isLoading: reviewLoading,
-  } = useCreateReviewMutation();
+  const [
+    createReview,
+    { isLoading: reviewLoading, isError, isSuccess, error: reviewError },
+  ] = useCreateReviewMutation();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) {
@@ -74,26 +77,42 @@ const Experience = () => {
     return <div>No college found</div>;
   }
 
+  if (isError) {
+    console.error(reviewError);
+  }
+
   const collegeId = colleges?.find(
     (college) => college.userId === user.id
   )?.collegeId;
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     try {
       const review = {
-        ...data,
+        ...formData,
         rating,
         userId: user.id,
         name: user.displayName,
         collegeId,
       };
-      // Handle form submission logic here
-      console.log(review);
-      reset();
+
+      // Call the mutation to create a review
+      const result = await createReview(review).unwrap();
+
+      // Handle successful submission
+      if (result || isSuccess) {
+        // Reset the form
+        reset();
+        setRating(0);
+        toast.success("Review submitted successfully");
+        navigate("/profile");
+      }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      // Handle errors during submission
+      console.error("Error submitting review:", error);
+
+      // Display error message to the user
+      alert(`Failed to submit review: ${error.message || "Unknown error"}`);
     }
-    reset();
   };
 
   const getContentIndex = (rating) => {
@@ -170,10 +189,10 @@ const Experience = () => {
           </label>
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={reviewLoading}
             className=" bg-primary_main mt-5 before:bg-secondary_main text-white py-3 rounded-lg font-semibold"
           >
-            {isSubmitting ? (
+            {reviewLoading ? (
               "Submitting..."
             ) : (
               <div className="flex items-center gap-2">
