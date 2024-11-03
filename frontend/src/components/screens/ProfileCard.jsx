@@ -11,7 +11,7 @@ const ProfileCard = () => {
     animate: {
       backgroundImage: [
         "linear-gradient(45deg, #125875, #ff7350)",
-        "linear-gradient(45deg, #ff7350, #125875)",
+        "linear-gradient(65deg, #ff7350, #125875)",
       ],
       transition: {
         duration: 2,
