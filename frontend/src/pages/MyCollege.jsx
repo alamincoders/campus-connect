@@ -11,7 +11,11 @@ const MyCollege = () => {
     <>
       <BreadcrumbSection
         page_name="My College"
-        items={[{ label: "Home", path: "/" }, { label: "My College" }]}
+        items={[
+          { label: "Home", path: "/" },
+          { label: "Profile", path: "/profile" },
+          { label: "My College" },
+        ]}
       />
 
       <div className="py-16 lg:py-30 relative">

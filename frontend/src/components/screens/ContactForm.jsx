@@ -29,7 +29,7 @@ const ContactForm = () => {
         transition={{ duration: 0.6 }}
         className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg mx-auto"
       >
-        <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
+        <h2 className="text-3xl font-bold text-center text-secondary_main mb-8">
           Contact Us
         </h2>
 
