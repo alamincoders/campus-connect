@@ -1,11 +1,4 @@
-import {
-  GraduationCap,
-  HomeIcon,
-  InfoIcon,
-  LogOut,
-  Settings,
-  StarIcon,
-} from "lucide-react";
+import { GraduationCap, HomeIcon, LogOut, StarIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -38,7 +31,7 @@ const items = [
     url: "/profile/add-review",
     icon: StarIcon,
   },
-  {
+  /*   {
     title: "Account Information",
     url: "/account",
     icon: InfoIcon,
@@ -48,7 +41,7 @@ const items = [
     title: "Settings",
     url: "#",
     icon: Settings,
-  },
+  }, */
   {
     title: "Sign Out",
     icon: LogOut,
