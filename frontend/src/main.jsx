@@ -16,6 +16,9 @@ createRoot(document.getElementById("root")).render(
         <RouterProvider router={router} />
       </ModalProvider>
     </Provider>
-    <ToastContainer />
+    <ToastContainer
+      position="bottom-center"
+      autoClose={3000}
+    />
   </StrictMode>
 );

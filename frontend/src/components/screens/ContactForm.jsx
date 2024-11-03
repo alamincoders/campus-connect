@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -8,12 +9,16 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm();
 
   const onSubmit = (data) => {
     console.log("Form Submitted", data);
-    // Handle form submission logic here
+    if (data) {
+      toast.success("Message sent successfully!");
+      reset();
+    }
   };
 
   return (
@@ -37,7 +42,7 @@ const ContactForm = () => {
             <Input
               placeholder="Your Name"
               {...register("name", { required: "Name is required" })}
-              className="w-full"
+              className="w-full placeholder:text-gray-400/80"
             />
             {errors.name && (
               <p className="text-red-500 mt-1 text-sm">{errors.name.message}</p>
@@ -56,7 +61,7 @@ const ContactForm = () => {
                   message: "Please enter a valid email address",
                 },
               })}
-              className="w-full"
+              className="w-full placeholder:text-gray-400/80"
             />
             {errors.email && (
               <p className="text-red-500 mt-1 text-sm">
@@ -70,8 +75,8 @@ const ContactForm = () => {
             <Textarea
               placeholder="Your Message"
               {...register("message", { required: "Message is required" })}
-              className="w-full"
-              rows={4}
+              className="w-full resize-none placeholder:text-gray-400/80"
+              rows={5}
             />
             {errors.message && (
               <p className="text-red-500 mt-1 text-sm">
