@@ -1,4 +1,10 @@
-import { GraduationCap, HomeIcon, LogOut, StarIcon } from "lucide-react";
+import {
+  ArrowLeft,
+  GraduationCap,
+  LogOut,
+  Settings,
+  StarIcon,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -17,9 +23,9 @@ import { Button } from "./button";
 // Menu items.
 const items = [
   {
-    title: "Home",
+    title: "Back to Home",
     url: "/",
-    icon: HomeIcon,
+    icon: ArrowLeft,
   },
   {
     title: "My College",
@@ -31,17 +37,11 @@ const items = [
     url: "/profile/add-review",
     icon: StarIcon,
   },
-  /*   {
-    title: "Account Information",
-    url: "/account",
-    icon: InfoIcon,
-  },
-
   {
-    title: "Settings",
-    url: "#",
+    title: "Profile Settings",
+    url: "/profile",
     icon: Settings,
-  }, */
+  },
   {
     title: "Sign Out",
     icon: LogOut,
