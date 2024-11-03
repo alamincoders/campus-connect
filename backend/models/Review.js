@@ -4,6 +4,7 @@ const reviewSchema = new mongoose.Schema(
   {
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     collegeId: { type: mongoose.Schema.Types.ObjectId, ref: "College" },
+    name: { type: String, required: true },
     rating: { type: Number, required: true },
     comment: { type: String, required: true },
   },

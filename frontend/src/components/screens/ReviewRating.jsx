@@ -1,9 +1,15 @@
+import {
+  useCreateReviewMutation,
+  useGetAdmissionCollegeQuery,
+} from "@/redux/api/collegesApi";
 import { motion } from "framer-motion";
+import Cookies from "js-cookie";
 import { Plus } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
 import { Button } from "../ui/button";
+import Spinner from "../ui/spinner";
 
 const content = [
   {
@@ -30,18 +36,63 @@ const content = [
 ];
 
 const Experience = () => {
-  const [rating, setRating] = useState(0);
-
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm();
+  const [rating, setRating] = useState(0);
+  const [colleges, setColleges] = useState([]);
+  const { data, error, isLoading } = useGetAdmissionCollegeQuery();
+  const user = JSON.parse(Cookies.get("user"));
 
-  const onSubmit = (data) => {
-    console.log("Form Submitted", { ...data, rating });
-    // Handle form submission logic here
+  const {
+    data: reviewData,
+    error: reviewError,
+    isLoading: reviewLoading,
+  } = useCreateReviewMutation();
+
+  useEffect(() => {
+    if (data) {
+      setColleges(data.data);
+    }
+  }, [data, user.id]);
+
+  if (error) {
+    console.error(error);
+    return (
+      <div className="text-red-400 font-medium">Error: {error?.status}</div>
+    );
+  }
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (!colleges) {
+    return <div>No college found</div>;
+  }
+
+  const collegeId = colleges?.find(
+    (college) => college.userId === user.id
+  )?.collegeId;
+
+  const onSubmit = async (data) => {
+    try {
+      const review = {
+        ...data,
+        rating,
+        userId: user.id,
+        name: user.displayName,
+        collegeId,
+      };
+      // Handle form submission logic here
+      console.log(review);
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
     reset();
   };
 

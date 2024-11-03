@@ -22,8 +22,21 @@ export const collegesApi = createApi({
         body: newCollege,
       }),
     }),
+
     getAdmissionCollege: builder.query({
       query: () => `/my-colleges`,
+    }),
+
+    getReviews: builder.query({
+      query: (collegeId) => `/reviews/${collegeId}`,
+    }),
+
+    createReview: builder.mutation({
+      query: (reviewData) => ({
+        url: "/reviews",
+        method: "POST",
+        body: reviewData,
+      }),
     }),
   }),
 });
@@ -35,4 +48,6 @@ export const {
   useGetSingleCollegeQuery,
   useGetAdmissionCollegeQuery,
   useAdmissionCollegeMutation,
+  useGetReviewsQuery,
+  useCreateReviewMutation,
 } = collegesApi;
