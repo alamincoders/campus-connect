@@ -4,7 +4,7 @@ const myCollegeSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true }, // Adjusted to store Firebase user ID as a string
     collegeId: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "College",
       required: true,
     },

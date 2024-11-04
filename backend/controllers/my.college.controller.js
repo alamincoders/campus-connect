@@ -6,8 +6,15 @@ exports.getMyCollege = async (req, res) => {
 };
 // Create a new college
 exports.createMyCollege = async (req, res) => {
-  const myCollege = new MyCollege(req.body);
   try {
+    const { userId, collegeId, ...rest } = req.body;
+
+    const myCollege = new MyCollege({
+      ...rest,
+      userId: mongoose.Types.ObjectId(userId),
+      collegeId: mongoose.Types.ObjectId(collegeId),
+    });
+
     const savedCollege = await myCollege.save();
     res.status(201).json({ message: "College created", data: savedCollege });
   } catch (error) {
