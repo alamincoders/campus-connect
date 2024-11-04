@@ -3,7 +3,6 @@ import { Check } from "lucide-react";
 import Spinner from "../ui/spinner";
 import EventCard from "./EventCard";
 import ResearchCard from "./ResearchCard";
-import ReviewCard from "./ReviewCard";
 
 const CheckItem = ({ text }) => (
   <div className="flex items-center gap-4">
@@ -35,18 +34,7 @@ const MyCollegeInfo = ({ college }) => {
     (c) => c._id === college?.collegeId
   );
 
-  const {
-    name,
-    description,
-    image,
-    admissionDate,
-    admissionProcess,
-    events,
-    researchHistory,
-    sports,
-    rating,
-    reviews,
-  } = admittedCollege;
+  const { name, description, image, events, researchHistory } = admittedCollege;
 
   const reasons = [
     "A prestigious institution known for academic excellence.",
@@ -108,27 +96,6 @@ const MyCollegeInfo = ({ college }) => {
               </div>
             </div>
           </section>{" "}
-          {/* researchHistory */}
-          <section>
-            <div className="pt-8 space-y-4">
-              <h2 className="text-2xl font-semibold text-secondary_main-950">
-                Reviews ({reviews?.length})
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {reviews?.map((review) => (
-                  <ReviewCard
-                    key={review._id}
-                    review={{
-                      name: "Unknown",
-                      profession: "Anonymous Reviewer",
-                      rating: review.rating,
-                      message: review.comment,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
         </div>
       </div>
     </div>

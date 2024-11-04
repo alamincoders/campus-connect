@@ -1,9 +1,12 @@
+import { useGetReviewsQuery } from "@/redux/api/collegesApi";
 import { Check, GraduationCap, Info } from "lucide-react";
+import { useEffect } from "react";
 import { PiCricket, PiStarFill } from "react-icons/pi";
 import { VscServerProcess } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import Spinner from "../ui/spinner";
 import EventCard from "./EventCard";
 import ResearchCard from "./ResearchCard";
 import ReviewCard from "./ReviewCard";
@@ -41,6 +44,36 @@ const CollegeInformation = ({ college }) => {
     rating,
     reviews,
   } = college;
+
+  const {
+    data: reviewFromUsers,
+    error: reviewError,
+    isLoading: reviewLoading,
+    refetch: reviewRefetch,
+  } = useGetReviewsQuery(_id);
+
+  useEffect(() => {
+    reviewRefetch();
+  }, [reviewRefetch]);
+
+  if (reviewLoading) {
+    return <Spinner />;
+  }
+
+  if (reviewError) {
+    console.error(reviewError);
+    return (
+      <div className="text-red-400 font-medium">
+        Error: {reviewError?.status}
+      </div>
+    );
+  }
+
+  const filterReviewsForThisCollege = reviewFromUsers?.data.filter(
+    (review) => review.collegeId === _id
+  );
+
+  const combinedReviews = [...reviews, ...(filterReviewsForThisCollege ?? [])];
 
   const reasons = [
     "A prestigious institution known for academic excellence.",
@@ -111,12 +144,13 @@ const CollegeInformation = ({ college }) => {
                     Reviews ({reviews?.length})
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {reviews?.map((review) => (
+                    {combinedReviews?.map((review) => (
                       <ReviewCard
                         key={review._id}
                         review={{
-                          name: "Unknown",
-                          profession: "Anonymous Reviewer",
+                          name: review?.name || "Unknown",
+                          profession:
+                            review?.profession || "Anonymous Reviewer",
                           rating: review.rating,
                           message: review.comment,
                         }}
