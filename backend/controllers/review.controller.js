@@ -23,17 +23,10 @@ exports.getReviews = async (req, res) => {
 
 // Create a new review
 exports.createReview = async (req, res) => {
+  const newReview = new Review(req.body);
   try {
-    const { userId, collegeId, ...rest } = req.body;
-
-    const newReview = new Review({
-      ...rest,
-      userId: mongoose.Types.ObjectId(userId),
-      collegeId: mongoose.Types.ObjectId(collegeId),
-    });
-
-    await newReview.save();
-    res.status(201).json({ message: "Review created successfully" });
+    const savedReview = await newReview.save();
+    res.status(201).json({ message: "Review created", data: savedReview });
   } catch (error) {
     res.status(500).json({ message: "Error creating review", error });
   }
