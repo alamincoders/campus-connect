@@ -1,11 +1,20 @@
 import { useAuth } from "@/hooks/useAuth";
+import { useProfile } from "@/hooks/useProfile";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Modal, ModalBody, ModalContent, ModalTrigger } from "../ui/modal";
+import Spinner from "../ui/spinner";
+import ProfileForm from "./ProfileForm";
 
 const ProfileCard = () => {
   const { user } = useAuth();
+  const { profileData, loading, register, updateProfileData, errors } =
+    useProfile();
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   const gradientAnimation = {
     animate: {
@@ -22,9 +31,8 @@ const ProfileCard = () => {
     },
   };
 
-  // Generate username by converting to lowercase and replacing spaces with underscores
-  const username = user?.displayName
-    ? user.displayName.toLowerCase().replace(/\s+/g, "_")
+  const username = profileData?.displayName
+    ? profileData.displayName.toLowerCase().replace(/\s+/g, "_")
     : "username";
 
   return (
@@ -42,16 +50,27 @@ const ProfileCard = () => {
               </Button>
             </ModalTrigger>
             <ModalBody>
-              <ModalContent ent>Hello world profile form submit</ModalContent>
+              <ModalContent>
+                <ProfileForm
+                  profileData={profileData}
+                  updateProfileData={updateProfileData}
+                  register={register}
+                  errors={errors}
+                />
+              </ModalContent>
             </ModalBody>
           </Modal>
         </div>
         <div className="w-32 h-32 absolute -bottom-16 bg-white overflow-hidden border-secondary_main/5 rounded-full border-8">
-          <img
-            src={user?.avatar || "/user.png"}
-            alt="user"
-            className="w-full h-full object-cover object-center"
-          />
+          {loading ? (
+            <div className="w-full h-full bg-gray-200 animate-pulse" />
+          ) : (
+            <img
+              src={profileData?.avatar || "/user.png"}
+              alt="user"
+              className="w-full h-full object-cover object-center"
+            />
+          )}
         </div>
       </motion.div>
 
@@ -62,24 +81,15 @@ const ProfileCard = () => {
         <div className="flex flex-col gap-4">
           <p className="text-secondary_main-950 grid grid-cols-1 lg:grid-cols-2">
             <span className="font-semibold">Name:</span>{" "}
-            <span>{user?.displayName}</span>
+            <span>{profileData?.displayName}</span>
           </p>
           <Link
             className="text-secondary_main-950 grid grid-cols-1 lg:grid-cols-2 cursor-default"
             to={`#`}
           >
             <span className="font-semibold">Email:</span>{" "}
-            <span className="">{user?.email}</span>
+            <span>{profileData?.email}</span>
           </Link>
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <label
-              className="font-semibold"
-              htmlFor="bio"
-            >
-              Bio:
-            </label>
-            <p className="text-secondary_main-950">{user?.bio || "N/A"}</p>
-          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <label
               className="font-semibold"
@@ -92,13 +102,13 @@ const ProfileCard = () => {
             </p>
           </div>
           <p className="text-secondary_main-950 grid grid-cols-1 lg:grid-cols-2">
-            <span className="font-semibold">Profession:</span>{" "}
-            <span>{user?.profession || "N/A"}</span>
+            <span className="font-semibold">Bio:</span>{" "}
+            <span>{profileData?.bio}</span>
           </p>{" "}
           <p className="text-secondary_main-950 grid grid-cols-1 lg:grid-cols-2">
-            <span className="font-semibold">Admission:</span>{" "}
-            <span>{user?.profession || "N/A"}</span>
-          </p>{" "}
+            <span className="font-semibold">Profession:</span>{" "}
+            <span>{profileData?.profession}</span>
+          </p>
         </div>
       </div>
     </section>
