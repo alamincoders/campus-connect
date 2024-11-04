@@ -121,7 +121,7 @@ const Experience = () => {
       console.log(review);
 
       // Call the mutation to create a review
-      const result = await createReview(review);
+      const result = await createReview(review).unwrap();
 
       // Handle successful submission
       if (result || isSuccess) {

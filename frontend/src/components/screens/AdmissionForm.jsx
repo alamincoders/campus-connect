@@ -50,7 +50,7 @@ const AdmissionForm = () => {
                 <SelectValue placeholder="Select College..." />
               </SelectTrigger>
               <SelectContent>
-                {colleges.data.map((college) => (
+                {colleges?.data.map((college) => (
                   <SelectItem
                     key={college._id}
                     value={college._id}
