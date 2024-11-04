@@ -1,7 +1,10 @@
 import CollegeInformation from "@/components/screens/CollegeInformation";
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
 import Spinner from "@/components/ui/spinner";
-import { useGetSingleCollegeQuery } from "@/redux/api/collegesApi";
+import {
+  useGetReviewsQuery,
+  useGetSingleCollegeQuery,
+} from "@/redux/api/collegesApi";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -17,6 +20,14 @@ const CollegeDetails = () => {
     error,
     isLoading,
   } = useGetSingleCollegeQuery(collegeId);
+
+  const {
+    data: reviewFromUsers,
+    error: reviewError,
+    isLoading: reviewLoading,
+  } = useGetReviewsQuery(collegeId);
+
+  console.log("reviewFromUsers", collegeId, reviewFromUsers);
 
   if (isLoading) {
     return <Spinner />;
