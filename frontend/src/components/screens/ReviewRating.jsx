@@ -118,14 +118,16 @@ const Experience = () => {
         collegeId,
       };
 
+      console.log(review);
+
       // Call the mutation to create a review
-      const result = await createReview(review).unwrap();
+      const result = await createReview(review);
 
       // Handle successful submission
       if (result || isSuccess) {
         // Reset the form
-        reset();
         setRating(0);
+        reset();
         toast.success("Review submitted successfully");
         navigate("/profile");
       }
