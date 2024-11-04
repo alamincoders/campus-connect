@@ -8,7 +8,7 @@ import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button } from "../ui/button";
 import Spinner from "../ui/spinner";
@@ -46,7 +46,7 @@ const Experience = () => {
   } = useForm();
   const [rating, setRating] = useState(0);
   const [colleges, setColleges] = useState([]);
-  const { data, error, isLoading } = useGetAdmissionCollegeQuery();
+  const { data, error, isLoading, refetch } = useGetAdmissionCollegeQuery();
   const user = JSON.parse(Cookies.get("user"));
 
   const [
@@ -55,6 +55,11 @@ const Experience = () => {
   ] = useCreateReviewMutation();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Trigger a re-fetch when the component mounts
+    refetch();
+  }, [refetch]);
 
   useEffect(() => {
     if (data) {
@@ -84,6 +89,24 @@ const Experience = () => {
   const collegeId = colleges?.find(
     (college) => college.userId === user.id
   )?.collegeId;
+
+  if (!collegeId) {
+    return (
+      <div className="py-16 lg:py-30 bg-[#EFF7FF]">
+        <div className="flex items-center justify-center p-6">
+          <p className="text-center text-secondary_main">
+            No college has applied yet.
+          </p>
+          <Link
+            to="/admission"
+            className="text-primary_main px-4 py-4 -mt-1.5 underline underline-offset-4 decoration-primary_main decoration-wavy"
+          >
+            Admission Open
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const onSubmit = async (formData) => {
     try {

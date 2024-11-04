@@ -8,8 +8,13 @@ import MyCollegeInfo from "./MyCollegeInfo";
 const MyAdmittedCollege = () => {
   const [colleges, setColleges] = useState([]);
   const [hasApplied, setHasApplied] = useState(false);
-  const { data, error, isLoading } = useGetAdmissionCollegeQuery();
+  const { data, error, isLoading, refetch } = useGetAdmissionCollegeQuery();
   const user_id = JSON.parse(Cookies.get("user"))?.id;
+
+  useEffect(() => {
+    // Trigger a re-fetch when the component mounts
+    refetch();
+  }, [refetch]);
 
   useEffect(() => {
     if (data) {
