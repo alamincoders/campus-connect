@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ErrorPage = () => {
   return (
     <div
-      className="boxShadow px-10 w-full lg:min-h-screen py-16 flex flex-col justify-center rounded-xl"
+      className="boxShadow min-h-screen px-10 w-full lg:min-h-screen py-16 flex flex-col justify-center rounded-xl"
       style={{
         background: "url('/404.webp')",
         backgroundSize: "cover",

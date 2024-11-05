@@ -93,7 +93,7 @@ const Experience = () => {
   if (!collegeId) {
     return (
       <div className="py-16 lg:py-30 bg-[#EFF7FF]">
-        <div className="flex items-center justify-center p-6">
+        <div className="flex items-center justify-center p-6 flex-wrap gap-2">
           <p className="text-center text-secondary_main">
             No college has applied yet.
           </p>
@@ -156,7 +156,7 @@ const Experience = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="w-3/6 mx-auto bg-[#f5f5f5] p-6 rounded-lg shadow">
+      <div className="lg:w-3/6 w-full mx-auto bg-[#f5f5f5] p-6 rounded-lg shadow">
         <div className="w-full flex items-center flex-col gap-4">
           <div className="flex items-center flex-col">
             <motion.div
@@ -220,7 +220,7 @@ const Experience = () => {
             {reviewLoading ? (
               "Submitting..."
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
                 {" "}
                 <Plus /> Add Review
               </div>
