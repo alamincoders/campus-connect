@@ -108,7 +108,7 @@ const HeroSlider = () => {
                     Discover More <FaArrowRightLong />
                   </Button>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contact-us">
                   <Button className="py-3 md:py-5 px-4 md:px-6 lg:px-[30px] bg-transparent border border-white hover:border-secondary_main">
                     Contact Us <FaArrowRightLong />
                   </Button>
