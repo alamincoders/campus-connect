@@ -53,7 +53,7 @@ export const useAdmissionForm = () => {
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
-      const file = data.image[0];
+      /*   const file = data.image[0];
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "qedu-campus");
@@ -69,8 +69,9 @@ export const useAdmissionForm = () => {
       const uploadData = await response.json();
 
       // Store URL
-      const imageUrl = uploadData.secure_url;
-      const submissionData = { ...data, image: imageUrl, userId };
+      const imageUrl = uploadData.secure_url; */
+
+      const submissionData = { ...data, userId };
 
       // Submit data to backend using the mutation
       await admissionCollege(submissionData).unwrap();

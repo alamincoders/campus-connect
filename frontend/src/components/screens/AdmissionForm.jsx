@@ -155,7 +155,7 @@ const AdmissionForm = () => {
           </div>
 
           {/* Image Upload */}
-          <div className="mb-4">
+          {/*    <div className="mb-4">
             <Label
               htmlFor="image"
               className="block mb-2 text-sm font-medium text-gray-700"
@@ -171,7 +171,7 @@ const AdmissionForm = () => {
             {errors.image && (
               <p className="text-red-500">{errors.image.message}</p>
             )}
-          </div>
+          </div> */}
 
           {/* Submit Button */}
           <Button

@@ -21,16 +21,16 @@ export function BreadcrumbSection({ items, page_name }) {
           </h2>
         </div>
 
-        <Breadcrumb className="py-4 px-9 bg-primary_main max-w-max rounded-full absolute -bottom-[26px] z-10 left-1/2 -translate-x-1/2 ">
+        <Breadcrumb className="py-4 px-5 md:px-9 bg-primary_main max-w-max rounded-full absolute -bottom-[26px] z-10 left-1/2 -translate-x-1/2 ">
           <BreadcrumbList>
             {items.map((item, index) => (
               <BreadcrumbItem key={index}>
                 {item.path ? (
-                  <BreadcrumbLink className="text-white hover:text-white/80 duration-300 transition-all hover:underline decoration-wavy text-base">
+                  <BreadcrumbLink className="text-white hover:text-white/80 duration-300 transition-all hover:underline decoration-wavy text-xs md:text-base">
                     <Link to={item.path}>{item.label}</Link>
                   </BreadcrumbLink>
                 ) : (
-                  <BreadcrumbPage className="text-white/80 text-base">
+                  <BreadcrumbPage className="text-white/80 text-xs md:text-base whitespace-nowrap">
                     {item.label}
                   </BreadcrumbPage>
                 )}

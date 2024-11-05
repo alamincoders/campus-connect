@@ -29,10 +29,10 @@ const myCollegeSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    image: {
+    /*     image: {
       type: String,
       required: true,
-    },
+    }, */
   },
   { timestamps: true }
 );

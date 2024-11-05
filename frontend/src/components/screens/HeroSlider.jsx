@@ -102,14 +102,14 @@ const HeroSlider = () => {
                   nisl tristique, commodo gravida lectus non.
                 </p>
               </div>
-              <div className="flex gap-4 mt-8">
+              <div className="flex gap-4 mt-8 flex-wrap">
                 <Link to="/about-us">
-                  <Button className="bg-primary_main-500 py-5 px-6 lg:px-[30px]">
+                  <Button className="bg-primary_main-500 py-3 md:py-5 px- md:px-6 lg:px-[30px]">
                     Discover More <FaArrowRightLong />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button className="py-5 px-6 lg:px-[30px] bg-transparent border border-white hover:border-secondary_main">
+                  <Button className="py-3 md:py-5 px-4 md:px-6 lg:px-[30px] bg-transparent border border-white hover:border-secondary_main">
                     Contact Us <FaArrowRightLong />
                   </Button>
                 </Link>
