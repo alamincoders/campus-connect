@@ -4,8 +4,12 @@ import ImageGallery from "@/components/screens/ImageGallery";
 import NewsLetter from "@/components/screens/NewsLetter";
 import ReviewSection from "@/components/screens/ReviewSection";
 import { BreadcrumbSection } from "@/components/shared/Breadcrumb";
+import { useEffect } from "react";
 
 const AboutPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <BreadcrumbSection
