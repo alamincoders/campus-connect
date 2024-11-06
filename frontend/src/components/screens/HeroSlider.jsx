@@ -88,7 +88,7 @@ const HeroSlider = () => {
             <div className="relative z-[99]">
               <div className="mb-4 inline-flex gap-2 lg:gap-4 items-center">
                 <h5 className="uppercase text-lg tracking-wider lg:tracking-[3px] leading-[18px] font-medium ">
-                  welcome To Qeducato
+                  welcome To Qeducampus
                 </h5>{" "}
                 <span className="block h-[2px] w-14 md:w-16 bg-primary_main-500" />
               </div>
